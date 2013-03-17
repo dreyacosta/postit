@@ -1,0 +1,30 @@
+extends header
+
+block content
+	if session.username
+		section
+			section.padding_big.row
+				div.col4
+					include sidebar
+				div.col8
+					div(id= user.username, data-username= user.username, data-role='tab', class='bck b_white padding_small')
+						label Username
+						input(name='user', class='anchor margin_bottom_small', value= user.username, disabled)
+						label Full Name
+						input(name='fullName', class='anchor margin_bottom_small', value= user.fullName)
+						label Email
+						input(name='email', class='anchor margin_bottom_small', value= user.email)
+						label Account state
+						input(name='accountState', class='anchor margin_bottom_small', value= user.accountState)
+						label Register date
+						input(name='registerDate', class='anchor margin_bottom_small', value= user.registerDate, disabled)
+						label Role
+						input(name='role', class='anchor margin_bottom_small', value= user.role)
+
+						div.flex_container
+							div.flex4
+								button(name='userUpdate', class='btn normal bck b_jet text color c_white margin_small')
+									| Update
+								button(name='removeUser', id= user._id, class='btn normal bck b_jet text color c_white margin_small')
+									| Remove user
+		include footer

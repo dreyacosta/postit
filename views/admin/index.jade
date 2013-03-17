@@ -1,0 +1,9 @@
+extends header
+
+block content
+	if session.username
+		section
+			section.padding_big.row
+				div.col4
+					include sidebar
+				div.col8

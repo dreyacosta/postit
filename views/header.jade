@@ -1,0 +1,40 @@
+doctype 5
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name='description', content= description)
+		title= title
+		link(rel='stylesheet', href='/font/font-awesome.min.css')
+		link(rel='stylesheet', href='/stylesheets/xpressio.theme.css')
+	body
+
+		
+		header.padding_small.bck.b_sparkle.border_bottom
+			div.row.site_width
+				div.col4
+					nav
+						h1.text.color.c_white
+							a(href='/')
+								i.icon-asterisk 
+									span.text.thin #{config.blogName}
+						small.text.color.c_sparkle_light #{config.blogDescription}
+				div.col8.text.right.color.c_sparkle_light
+					nav
+						h6 made with
+						ul
+							li.inline
+								a(href='http://nodejs.org/')
+									img(src='/images/nodejs.png', class='small')
+				//- div.row
+				//- 	div.col12.text.color.c_sparkle_light.center
+				//- 		nav
+				//- 			ul
+				//- 				li.inline.margin_big
+				//- 					h4.inline Screenshots
+				//- 				li.inline.margin_big
+				//- 					h4.inline About
+				//- 				li.inline.margin_big
+				//- 					h4.inline Contribute
+		block content

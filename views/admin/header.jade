@@ -1,0 +1,25 @@
+doctype 5
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name='description', content= description)
+		title= title
+		link(rel='stylesheet', href='/font/font-awesome.min.css')
+		link(rel='stylesheet', href='/stylesheets/xpressio.theme.css')
+	body.bck.b_jet_light
+		if session.username
+			header.bck.b_white.border_bottom
+				div.row.site_width
+					div.col4 
+						a(href= config.url.admin.index) admin
+							b panel
+					div.col8.text.right.uppercase #{title}
+			block content
+		else
+			section.site_width.padding_big
+				form(action= config.url.admin.index, method='post')
+					input(id='user', name='user', placeholder='Usuario', class='anchor margin_bottom_small', required)
+					input(type='password', name='pass', placeholder='Password', class='anchor margin_bottom_small', required)
+					input(type='submit', value='Enviar', class='btn medium bck b_jet text color c_white anchor margin_bottom_small')

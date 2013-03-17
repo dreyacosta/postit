@@ -1,0 +1,86 @@
+button,
+input,
+select,
+textarea
+	font-family inherit
+	font-size 100%
+	margin 0
+	vertical-align middle
+
+button,
+input
+	line-height normal
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"]
+	-webkit-appearance button
+	cursor pointer
+
+button[disabled],
+input[disabled]
+	cursor default
+
+input[type="checkbox"],
+input[type="radio"]
+	box-sizing(border-box)
+	padding 0
+
+input[type="search"]
+	-webkit-appearance textfield
+	box-sizing(content-box)
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration
+	-webkit-appearance none
+
+button::-moz-focus-inner,
+input::-moz-focus-inner
+	border 0
+	padding 0
+
+textarea
+	overflow auto
+	vertical-align top
+
+input, textarea
+	border 1px solid #f1f1f1 
+	outline 0
+	margin 0
+	padding 0.7em
+
+fieldset
+	margin 0 2px
+	padding 0.35em 0.625em 0.75em
+
+legend
+	border 0
+	padding 0
+
+fieldset label
+	float left
+	font-weight bold
+	margin-right 10px
+
+fieldset
+	&input[type="text"], input[type="password"], input[type="date"], input[type="datetime"],input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], select, textarea
+		width 80%
+
+.btn
+	border 1px solid rgba(0,0,0,0.2)
+	box-shadow inset 1px 1px 2px rgba(255,255,255,0.2)
+	border-radius 3px
+	cursor pointer
+	&.large
+		line-height 3em
+		padding 0.8em
+	&.medium
+		line-height 2em
+		padding 0.6em
+	&.normal
+		line-height 1em
+		padding 0.4em
+	&.anchor
+		display block
+		width 100%

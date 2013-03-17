@@ -1,0 +1,29 @@
+extends header
+
+block content
+	if session.username
+		section
+			section.padding_big.row
+				div.col4
+					include sidebar
+				div.col8
+					article(id= post._id, class='bck b_white row align_items_center padding_small margin_bottom_small')
+							div.margin_bottom_small
+								h4(id='title', data-title= post.title, class='text color c_mysauce2 margin_bottom_small', contenteditable='true') #{post.title}
+								div.text.bold Slug
+								div(id='titleId', data-titleid= post.titleId, class='margin_bottom_small', contenteditable='true') #{post.titleId}
+								div.text.bold Category
+								div(data-category= post.category, class='margin_bottom_small', contenteditable='true')
+									| #{post.category}
+								div.text.bold Tags
+								div(data-tags= post.tags, class='margin_bottom_small', contenteditable='true')
+									| #{post.tags}
+								textarea(data-content='postContent', class='anchor')
+									| !{post.content}
+							div.flex_container.align_items_center.padding_small
+								div.flex4
+									a(name='updatePost', class='btn normal bck b_jet text color c_white margin_small')
+										| Update post
+									a(href='/post/remove/' + post._id, id= post._id , class='btn normal bck b_jet text color c_white margin_small')
+										| Remove post
+		include footer

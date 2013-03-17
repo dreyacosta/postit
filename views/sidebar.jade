@@ -1,0 +1,15 @@
+block sidebar
+	aside.col3.desktop.tablet
+		h5.text.uppercase.normal.color.c_sparkle_dark Administration
+		ul.margin_bottom_big
+			li.border_bottom
+				a(href= config.url.admin.index)
+					i.icon-circle-arrow-right
+					| Admin panel
+		h5.text.uppercase.normal.color.c_sparkle_dark Categories
+		ul.margin_bottom_big
+			each category in categories
+				li.border_bottom
+					a(href='/category/' + category)
+						i.icon-circle-arrow-right 
+						| #{category}

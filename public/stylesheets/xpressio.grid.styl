@@ -1,0 +1,78 @@
+_gridsystemWidth = (column_width + gutter_width) * columns
+
+clearfix()
+	*zoom:1
+	&:before,
+	&:after
+		content ""
+		display table
+	&:after
+		clear both
+
+row(columns = columns)
+	display block
+	width total_width * ((gutter_width + _gridsystemWidth ) / _gridsystemWidth)
+	margin 0 total_width * (((gutter_width * 0.5) / _gridsystemWidth ) * - 1)
+
+column(x, columns = columns)
+	display inline
+	float left
+	width total_width * ((((gutter_width + column_width ) * x) - gutter_width) / _gridsystemWidth)
+	margin 0 total_width * ((gutter_width * 0.5) / _gridsystemWidth)
+
+offset(offset = 1)
+
+.row
+	width 100%
+	clearfix()
+
+.col1
+	column(1)
+
+.col2
+	column(2)
+
+.col3
+	column(3)
+
+.col4
+	column(4)
+
+.col5
+	column(5)
+
+.col5
+	column(5)
+
+.col6
+	column(6)
+
+.col7
+	column(7)
+
+.col8
+	column(8)
+
+.col9
+	column(9)
+
+.col10
+	column(10)
+
+.col11
+	column(11)
+
+.col12
+	column(12)
+
+.col13
+	column(13)
+
+.col14
+	column(14)
+
+.col15
+	column(15)
+
+.col16
+	column(16)

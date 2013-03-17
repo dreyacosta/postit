@@ -1,0 +1,18 @@
+extends header
+
+block content
+	if session.username
+		section
+			section.padding_big.row
+				div.col4
+					include sidebar
+				div.col8
+					for post in posts
+						div(id= post._id, class='flex_container align_items_center bck b_white margin_bottom_small bck b_sparkle_light border_bottom border_top padding_small')
+							div.flex4
+								h5.text.color.c_mysauce2 #{post.title}
+								span.text.color.c_jet #{post.postDate} by #{post.username} @ #{post.category}
+							div.flex1
+								a(href= config.url.edit.post + '/' + post._id, class='btn normal margin_small bck b_sparkle text center color c_white') Edit
+								a(href= config.url.remove.post + '/' + post._id , class='btn normal bck b_jet text color c_white margin_small') Remove
+		include footer

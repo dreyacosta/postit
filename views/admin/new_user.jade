@@ -1,0 +1,21 @@
+extends header
+
+block content
+	if session.username
+		section
+			section.padding_big.row
+				div.col4
+					include sidebar
+				div.col8
+					form(action= config.url.create.user, class='bck b_white padding_small', method='post')
+						input(type='text', id='username', name='username', placeholder='Username', class='anchor margin_bottom_small', required)
+						input(type='text', id='fullName', name='fullName', placeholder='Full name', class='anchor margin_bottom_small', required)
+						input(type='email', id='email', name='email', placeholder='Email adress', class='anchor margin_bottom_small', required)
+						select(name='group', class='anchor margin_bottom_small')
+							option(value="admin") admin
+							option(value="user") user
+						input(type='password', id='pass', name='pass', placeholder='Password', class='anchor margin_bottom_small', required)
+						input(type='password', id='confirmPass', name='confirmPass', placeholder='Confirma el password', class='anchor margin_bottom_small', required)
+						input(type='submit', id="send", value='Enviar', class='btn medium bck b_jet text color c_white anchor')
+
+		include footer

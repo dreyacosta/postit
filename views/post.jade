@@ -1,0 +1,19 @@
+extends header
+
+block content
+	section.site_width.padding_big.row
+		section#posts.col12
+			article(id='' + post._id + '', class='padding_small margin_bottom_big')
+				header
+					h3(data-title= post.titleId, class='text color c_turquoise_dark normal') 
+						a(href= config.url.blog.post + '/' + post.titleId) #{post.title}
+					div.text.color.c_sparkle
+						small #{post.postDate} by 
+							strong #{post.username} #{post.extra} 
+						small in 
+							strong 
+								span(data-category= post.category)
+									a(href= config.url.blog.category + '/' + post.category) #{post.category}
+				div(data-content='postContent', class='margin_bottom_small')
+					| !{post.content}
+	include footer
