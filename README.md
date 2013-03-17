@@ -1,7 +1,7 @@
 # postit
 ### Experimental CMS for real-time blogging made with NodeJS
 
-## What's xpressio?
+## What's postit?
 A little CMS for real-time blogging made with NodeJS, ExpressJS and Socket.io.
 
 + Site: Coming soon...
