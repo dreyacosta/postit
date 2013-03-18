@@ -1,4 +1,4 @@
-module.exports = function(app, post, user, blogConfig, pass) {
+module.exports = function(app, post, user, pass) {
 
 	return {
 		getUsers: function (callback) {
