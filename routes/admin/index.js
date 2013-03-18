@@ -7,7 +7,7 @@ module.exports = function(app, config, post, user, pass, functions) {
 	app.get(config.url.admin.index, function (req, res) {
 		res.render('admin/index', {
 			title: 'Administration | ' + config.blogName,
-			description: 'Blogio admin page',
+			description: config.blogName + ' admin page',
 			session: req.session,
 			config: config
 		});
