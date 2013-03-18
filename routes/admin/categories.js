@@ -6,7 +6,13 @@ module.exports = function(app, config, post, user, pass, functions) {
 
 	app.get(config.url.admin.categories, function (req, res) {
 		functions.getCategories(function (categories) {
-			res.render('admin/categories', { title: 'Administration articles | ' + config.blogName, description: 'Categories admin', session: req.session, categories: categories, config: config});
+			res.render('admin/categories', {
+				title: 'Administration articles | ' + config.blogName,
+				description: 'Admin categories',
+				session: req.session,
+				categories: categories,
+				config: config
+			});
 			req.session.msg = '';
 		});
 	});
@@ -19,8 +25,7 @@ module.exports = function(app, config, post, user, pass, functions) {
 			posts.forEach(function (post) {
 				post.category = newCategory;
 				post.save();
-				console.log(post);
-				req.session.msg = 'Nombre de categoría cambiado con éxito';
+				req.session.msg = 'Category name changed';
 				res.redirect(config.url.admin.categories);
 			});
 		});
