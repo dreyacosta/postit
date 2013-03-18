@@ -1,6 +1,6 @@
 var config = {
 	blogName: 'postit',
-	blogDescription: 'My blog description',
+	blogDescription: 'Small lightweight and real-time system blogging',
 	url: {
 		admin: {
 			index: '/admin',

@@ -23,7 +23,7 @@ margin_top_big = 40px
 margin_bottom_small = 20px
 margin_bottom_big = 40px
 
-padding_small = 12px
+padding_small = 6px
 padding_big = 40px
 
 border_radius_small = 5px
@@ -38,36 +38,40 @@ a_text_decoration = none
 a_hover_color = none
 a_hover_text_decoration = none
 
-li_padding_top_bottom = 4px
+li_padding_top_bottom = 10px
 li_padding_right_left = 0px
 
 // Grid
 
 column_width = 100px
-gutter_width = 140px
+gutter_width = 230px
 columns = 12 // max 16
 
 total_width = 100% // 100% to fluid grid
 
 // Colors
 
-black = black
-blue = blue
-green = green
-orange = #e2674a
-red = red
-yellow = yellow
 white = white
+
+black = black
+blue = #2D91EA
+green = #0AAE15
+orange = #EF7509
+
+red = #DD0404
+yellow = #F8DE07
+pink = #F33E6F
+violet = #AF08B9
 
 asparagus = #99CC99
 coral = #e2674a
 eggplant = #666699
-jet = #222222
-pink = #CC6699
+jet = #575757
+
+salmon = #FA8072
 royalblue = #3399CC
 sparkle = #669999
 turquoise = #33CCCC
-violet = #996699
 
 
 // More colors, feel free to change
@@ -81,25 +85,29 @@ mysauce5 = #40E0D0
 // Color degradation
 
 light = 90%
+medium = 45%
 dark = 50%
+
 
 black_light = lighten(black, light)
 blue_light = lighten(blue, light)
 green_light = lighten(green, light)
 orange_light = lighten(orange, light)
+
 red_light = lighten(red, light)
 yellow_light = lighten(yellow, light)
-white_light = lighten(white, light)
+pink_light = lighten(pink, light)
+violet_light = lighten(violet, light)
 
 asparagus_light = lighten(asparagus, light)
 coral_light = lighten(coral, light)
 eggplant_light = lighten(eggplant, light)
 jet_light = lighten(jet, light)
-pink_light = lighten(pink, light)
+
+salmon_light = lighten(salmon, light)
 royalblue_light = lighten(royalblue, light)
 sparkle_light = lighten(sparkle, light)
 turquoise_light = lighten(turquoise, light)
-violet_light = lighten(violet, light)
 
 mysauce1_light = lighten(mysauce1, light)
 mysauce2_light = lighten(mysauce2, light)
@@ -108,29 +116,59 @@ mysauce4_light = lighten(mysauce4, light)
 mysauce5_light = lighten(mysauce5, light)
 
 
+black_medium = lighten(black, medium)
+blue_medium = lighten(blue, medium)
+green_medium = lighten(green, medium)
+orange_medium = lighten(orange, medium)
+
+red_medium = lighten(red, medium)
+yellow_medium = lighten(yellow, medium)
+pink_medium = lighten(pink, medium)
+violet_medium = lighten(violet, medium)
+
+asparagus_medium = lighten(asparagus, medium)
+coral_medium = lighten(coral, medium)
+eggplant_medium = lighten(eggplant, medium)
+jet_medium = lighten(jet, medium)
+
+salmon_medium = lighten(salmon, medium)
+royalblue_medium = lighten(royalblue, medium)
+sparkle_medium = lighten(sparkle, medium)
+turquoise_medium = lighten(turquoise, medium)
+
+mysauce1_medium = lighten(mysauce1, medium)
+mysauce2_medium = lighten(mysauce2, medium)
+mysauce3_medium = lighten(mysauce3, medium)
+mysauce4_medium = lighten(mysauce4, medium)
+mysauce5_medium = lighten(mysauce5, medium)
+
+
 black_dark = darken(black, dark)
 blue_dark = darken(blue, dark)
 green_dark = darken(green, dark)
 orange_dark = darken(orange, dark)
+
 red_dark = darken(red, dark)
 yellow_dark = darken(yellow, dark)
-white_dark = darken(white, dark)
+pink_dark = darken(pink, dark)
+violet_dark = darken(violet, dark)
 
 asparagus_dark = darken(asparagus, dark)
 coral_dark = darken(coral, dark)
 eggplant_dark = darken(eggplant, dark)
 jet_dark = darken(jet, dark)
-pink_dark = darken(pink, dark)
+
+salmon_dark = darken(salmon, dark)
 royalblue_dark = darken(royalblue, dark)
 sparkle_dark = darken(sparkle, dark)
 turquoise_dark = darken(turquoise, dark)
-violet_dark = darken(violet, dark)
 
 mysauce1_dark = darken(mysauce1, dark)
 mysauce2_dark = darken(mysauce2, dark)
 mysauce3_dark = darken(mysauce3, dark)
 mysauce4_dark = darken(mysauce4, dark)
 mysauce5_dark = darken(mysauce5, dark)
+
 
 
 @import "__vendors.styl"

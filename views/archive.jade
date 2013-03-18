@@ -1,17 +1,19 @@
 extends header
 
 block content
-	section.site_width.padding_big.row
+	section.site_width.row
 		section.col9
-			h2.text.uppercase.margin_bottom_big.color.c_sparkle_dark #{description}
-			div#posts
+			h4.text.uppercase.margin_bottom_big.color.c_sparkle_dark.margin_top_big #{description}
+			section#posts.margin_top_big
 				for post in posts
-					article(id='' + post._id + '', class='padding_small margin_bottom_big border_top')
+					article(id='' + post._id + '', class='text color c_jet margin_bottom_big')
 						header
-							h3(data-title= post.titleId, class='text color c_turquoise_dark normal') 
+							h3(data-title= post.titleId, class='text normal') 
 								a(href= config.url.blog.post + '/' + post.titleId) #{post.title}
-							div.text.color.c_sparkle
-								small #{post.postDate} by 
+							div
+								small
+									i.icon-calendar 
+									| #{post.postDate} by 
 									strong #{post.username} #{post.extra} 
 								small in 
 									strong 
@@ -19,12 +21,11 @@ block content
 											a(href= config.url.blog.category + '/' + post.category) #{post.category}
 						div(data-content='postContent', class='margin_bottom_small')
 							| !{post.content}
-						div.text.color.c_sparkle
+						div.bck.b_jet_light.padding_small.text.color.c_jet_medium
 							small
 								| Tagged as:
 								each tag in post.tags
-									span(data-tags= post.tag, class='text bold') 
+									span(data-tags= post.tag, class='') 
 										a(href= config.url.blog.tag + '/' + tag) #{tag}
-									span.text.bold.separator ,
 		include sidebar
 	include footer

@@ -9,32 +9,12 @@ html
 		link(rel='stylesheet', href='/font/font-awesome.min.css')
 		link(rel='stylesheet', href='/stylesheets/xpressio.theme.css')
 	body
-
-		
-		header.padding_small.bck.b_sparkle.border_bottom
-			div.row.site_width
-				div.col4
-					nav
-						h1.text.color.c_white
-							a(href='/')
-								i.icon-asterisk 
-									span.text.thin #{config.blogName}
-						small.text.color.c_sparkle_light #{config.blogDescription}
-				div.col8.text.right.color.c_sparkle_light
-					nav
-						h6 made with
-						ul
-							li.inline
-								a(href='http://nodejs.org/')
-									img(src='/images/nodejs.png', class='small')
-				//- div.row
-				//- 	div.col12.text.color.c_sparkle_light.center
-				//- 		nav
-				//- 			ul
-				//- 				li.inline.margin_big
-				//- 					h4.inline Screenshots
-				//- 				li.inline.margin_big
-				//- 					h4.inline About
-				//- 				li.inline.margin_big
-				//- 					h4.inline Contribute
+		header.border_bottom.bck.b_jet_dark.text.color.c_white
+			div.site_width.row
+				div.col8
+					a(href='/', class='text bold') #{config.blogName} 
+					| | #{config.blogDescription}
+				div.col4.text.right
+					a(href='', class='btn normal margin_small bck b_blue text color c_white icon-cloud-download')  Download
+					a(href='', class='btn normal margin_small bck b_blue text color c_white icon-github-alt')  View on Github
 		block content

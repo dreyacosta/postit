@@ -18,8 +18,9 @@ A little CMS for real-time blogging made with NodeJS, ExpressJS and Socket.io.
 1. Clone repo into your NodeJS server.
 2. npm install
 3. Config blog name and urls @ routes/admin/config.js
-4. Go to http://localhost:3001/register to register your first user.
-5. Enjoy!
+4. Run app: node app.js
+5. Go to http://localhost:3001/register to register your first user.
+6. Enjoy!
 
 ## Features
 

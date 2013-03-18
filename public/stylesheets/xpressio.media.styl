@@ -14,25 +14,28 @@
 		margin-top 10px
 
 	.desktop
-		display none
+		display none !important
+
+	.flex
+		flex-direction(column)
 
 	.inline
 		display inherit
 
 	.mobile
-		display none
+		display none !important
 
 	.tablet
-		display inherit	
+		display inherit	!important
 	
 @media handheld, only screen and (max-width: 480px)
 	.desktop
-		display none
+		display none !important
 
 	.mobile
-		display inherit
+		display inherit !important
 
 	.tablet
-		display none
+		display none !important
 
 // @media handheld, only screen and (max-width: 320px)
