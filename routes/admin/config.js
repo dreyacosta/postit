@@ -1,6 +1,7 @@
 var config = {
 	blogName: 'postit',
 	blogDescription: 'Small lightweight and real-time system blogging',
+	blogDbName: 'blogio',
 	url: {
 		admin: {
 			index: '/admin',
