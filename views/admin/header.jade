@@ -20,6 +20,12 @@ html
 			block content
 		else
 			section.site_width.padding_big
+				if session.msg == 'Incorrect username or password'
+					div.bck.b_red_light.text.center.padding_small.margin_bottom_small
+						| #{session.msg}
+				if session.msg == 'Complete registration'
+					div.bck.b_green_light.text.center.padding_small.margin_bottom_small
+						| #{session.msg}
 				form(action= config.url.admin.index, method='post')
 					input(id='user', name='user', placeholder='Usuario', class='anchor margin_bottom_small', required)
 					input(type='password', name='pass', placeholder='Password', class='anchor margin_bottom_small', required)
