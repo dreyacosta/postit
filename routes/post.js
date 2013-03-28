@@ -17,6 +17,11 @@ module.exports = function(app, config, post, user, pass, functions) {
 						});
 					}
 				});
+			} else {
+				res.render('404', {
+		            title: '404 Page not found',
+		            description: '404 Page not found'
+		        });
 			}
 		});
 	});
