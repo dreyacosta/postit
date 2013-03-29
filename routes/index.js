@@ -1,6 +1,6 @@
 module.exports = function(app, config, post, user, pass, functions) {
 	
-	app.get('/', function (req, res) {
+	app.get(config.url.blogHome, function (req, res) {
 		functions.getPostByDate(function (posts) {
 			if (posts) {
 				functions.getCategories(function (categories) {

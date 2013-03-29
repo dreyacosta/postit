@@ -3,6 +3,7 @@ var config = {
 	blogDescription: 'Small lightweight and real-time system blogging',
 	blogDbName: 'blogio',
 	url: {
+		blogHome: '/demo',
 		admin: {
 			index: '/admin',
 			posts: '/admin/posts',
