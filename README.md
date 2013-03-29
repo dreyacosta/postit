@@ -5,7 +5,7 @@
 A little CMS for real-time blogging made with NodeJS, ExpressJS and Socket.io.
 
 + Site: Coming soon...
-+ Demo: http://youtu.be/Zo9uEAi2va0
++ Demo: http://youtu.be/rHXb75fw208
 
 ## How to install
 
