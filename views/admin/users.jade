@@ -14,6 +14,10 @@ block content
 										h5.text.color.c_mysauce2 #{user.username}
 										| #{user.email}
 								div.f1
-									a(href= config.url.edit.user + '/' + user._id, class='btn normal margin_small bck b_green text center color c_white icon-save')  Edit
-									a(href= config.url.remove.user + '/' + user._id, class='btn normal bck b_red text color c_white margin_small icon-remove-sign')  Remove
+									a(href= config.url.edit.user + '/' + user._id, class='btn normal margin_small bck b_green text center color c_white')
+										i.icon-save
+										|  Edit
+									a(href= config.url.remove.user + '/' + user._id, class='btn normal bck b_red text color c_white margin_small')
+										i.icon-remove-sign
+										|  Remove
 		include footer

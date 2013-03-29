@@ -5,15 +5,15 @@ block sidebar
 		h6.text.uppercase.normal.color.c_sparkle_dark Administration
 		ul.margin_bottom_big
 			li.border_bottom
+				i.icon-circle-arrow-right
 				a(href= config.url.admin.index)
-					i.icon-circle-arrow-right
 					| Admin panel
 		h6.text.uppercase.normal.color.c_sparkle_dark Categories
 		ul.margin_bottom_big
 			each category in categories
 				li.border_bottom
+					i.icon-circle-arrow-right 
 					a(href='/category/' + category)
-						i.icon-circle-arrow-right 
 						| #{category}
 		h6.text.uppercase.normal.color.c_sparkle_dark Made with
 		div.margin_bottom_big.bck.b_asparagus_dark.padding_small.border_radius_small

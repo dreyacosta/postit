@@ -12,9 +12,16 @@ html
 		header.border_bottom.bck.b_jet_dark.text.color.c_white
 			div.site_width.row
 				div.col7
-					a(href='/', class='text bold') #{config.blogName} 
-					| | #{config.blogDescription}
+					nav
+						a(href= config.url.blogHome, class='text bold') #{config.blogName} 
+						| | #{config.blogDescription}
 				div.col5.text.right
-					a(href='', class='btn normal margin_small bck b_blue text color c_white icon-cloud-download')  Download
-					a(href='', class='btn normal margin_small bck b_blue text color c_white icon-github-alt')  View on Github
+					nav
+						ul
+							li(class='btn normal margin_small bck b_blue inline')
+								i.icon-cloud-download 
+								a(href='#', class='text thin color c_white') Download
+							li(class='btn normal margin_small bck b_blue inline')
+								i.icon-github-alt 
+								a(href='#', class='text thin color c_white') View on Github
 		block content
