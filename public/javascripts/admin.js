@@ -14,7 +14,7 @@ function iniciar() {
 		}
 		if (data == 'User update'){
 			$('[data-message]').removeClass('b_green_light b_white c_green');
-			$('[data-message]').addClass('b_red_light c_red');
+			$('[data-message]').addClass('b_green_light c_red');
 		}
 		if (data == 'The post ID exist. Change the slug ;-)') {
 			$('[data-message]').removeClass('b_green_light b_white c_red');
