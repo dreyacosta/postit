@@ -60,7 +60,7 @@ function iniciar() {
 			category: category,
 			tags: tags,
 			content: content
-		}
+		};
 
 		console.log(toSend);
 
@@ -72,8 +72,8 @@ function iniciar() {
 		console.log('Remove id ' + id);
 		$.ajax({
 			type: "POST",
-  			url: "/remove/post/",
-  			data: {id: id}
+			url: "/remove/post/",
+			data: {id: id}
 		});
 	});
 
@@ -90,7 +90,7 @@ function iniciar() {
 			email: email,
 			accountState: accountState,
 			role: role
-		}
+		};
 
 		socket.emit('updateUser', toSend);
 	});
@@ -99,8 +99,8 @@ function iniciar() {
 		var id = $(this).attr('id');
 		$.ajax({
 			type: "POST",
-  			url: "/remove/user/",
-  			data: {id: id}
+			url: "/remove/user/",
+			data: {id: id}
 		});
 		$('#' + id).remove();
 		$('[data-role]').hide();

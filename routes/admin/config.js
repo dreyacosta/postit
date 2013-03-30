@@ -29,6 +29,6 @@ var config = {
 			tag: '/tag'
 		}
 	}
-}
+};
 
 module.exports = config;

@@ -68,8 +68,8 @@ module.exports = function(app, config, post, user, pass, functions) {
 				// content = "";
 
 				// for(i = 0; i < paragraph.length; i++){
-				// 	paragraph[i] = ('<p>' + paragraph[i] + '</p>');
-				// 	content = (content + paragraph[i]);
+				// paragraph[i] = ('<p>' + paragraph[i] + '</p>');
+				// content = (content + paragraph[i]);
 				// }
 
 				thisPost.content = content;
