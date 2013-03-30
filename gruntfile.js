@@ -38,6 +38,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 
 	// Default task(s).
-	grunt.registerTask('default', ['jshint', 'uglify', 'copy']);
+	grunt.registerTask('default', ['jshint', 'uglify', 'copy', 'watch']);
 
 };
