@@ -8,11 +8,16 @@ block content
 					include sidebar
 				div.col8
 					for user in users
-						div(id= user._id, class='flex_container align_items_center margin_bottom_small bck b_white border_bottom border_top padding_small')
-								div.flex4
-									h5.text.color.c_mysauce2 #{user.username}
-									| #{user.email}
-								div.flex1
-									a(href= config.url.edit.user + '/' + user._id, class='btn normal margin_small bck b_sparkle text center color c_white') Edit
-									a(href= config.url.remove.user + '/' + user._id, class='btn normal bck b_jet text color c_white margin_small') Remove
+						div(id= user._id, class='flex margin_bottom_small bck b_white border_bottom border_top padding_small')
+								div.f2
+									div
+										h5.text.color.c_mysauce2 #{user.username}
+										| #{user.email}
+								div.f1
+									a(href= config.url.edit.user + '/' + user._id, class='btn normal margin_small bck b_green text center color c_white')
+										i.icon-save
+										|  Edit
+									a(href= config.url.remove.user + '/' + user._id, class='btn normal bck b_red text color c_white margin_small')
+										i.icon-remove-sign
+										|  Remove
 		include footer

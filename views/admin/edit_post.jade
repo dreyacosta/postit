@@ -20,10 +20,12 @@ block content
 									| #{post.tags}
 								textarea(data-content='postContent', class='anchor')
 									| !{post.content}
-							div.flex_container.align_items_center.padding_small
+							div.flex_container.align_items_center.margin_bottom_small
 								div.flex4
-									a(name='updatePost', class='btn normal bck b_jet text color c_white margin_small')
-										| Update post
-									a(href='/post/remove/' + post._id, id= post._id , class='btn normal bck b_jet text color c_white margin_small')
-										| Remove post
+									a(name='updatePost', class='btn normal bck b_green text color c_white')
+										i.icon-save
+										|  Update post
+									a(href= config.url.remove.post + '/' + post._id, id= post._id , class='btn normal bck b_red text color c_white margin_small')
+										i.icon-remove-sign
+										|  Remove post
 		include footer

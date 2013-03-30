@@ -1,7 +1,9 @@
 var config = {
 	blogName: 'postit',
-	blogDescription: 'My blog description',
+	blogDescription: 'Small lightweight and real-time system blogging',
+	blogDbName: 'blogio',
 	url: {
+		blogHome: '/demo',
 		admin: {
 			index: '/admin',
 			posts: '/admin/posts',
@@ -27,6 +29,6 @@ var config = {
 			tag: '/tag'
 		}
 	}
-}
+};
 
 module.exports = config;

@@ -14,7 +14,7 @@ function iniciar() {
 		}
 		if (data == 'User update'){
 			$('[data-message]').removeClass('b_green_light b_white c_green');
-			$('[data-message]').addClass('b_red_light c_red');
+			$('[data-message]').addClass('b_green_light c_red');
 		}
 		if (data == 'The post ID exist. Change the slug ;-)') {
 			$('[data-message]').removeClass('b_green_light b_white c_red');
@@ -60,7 +60,7 @@ function iniciar() {
 			category: category,
 			tags: tags,
 			content: content
-		}
+		};
 
 		console.log(toSend);
 
@@ -72,8 +72,8 @@ function iniciar() {
 		console.log('Remove id ' + id);
 		$.ajax({
 			type: "POST",
-  			url: "/remove/post/",
-  			data: {id: id}
+			url: "/remove/post/",
+			data: {id: id}
 		});
 	});
 
@@ -90,7 +90,7 @@ function iniciar() {
 			email: email,
 			accountState: accountState,
 			role: role
-		}
+		};
 
 		socket.emit('updateUser', toSend);
 	});
@@ -99,8 +99,8 @@ function iniciar() {
 		var id = $(this).attr('id');
 		$.ajax({
 			type: "POST",
-  			url: "/remove/user/",
-  			data: {id: id}
+			url: "/remove/user/",
+			data: {id: id}
 		});
 		$('#' + id).remove();
 		$('[data-role]').hide();

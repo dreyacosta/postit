@@ -33,11 +33,11 @@ function iniciar() {
 	});
 
 	socket.on('removePost', function (data) {
-		$('#' + data.titleId).remove();
-	})
+		$('#' + data._id).remove();
+	});
 
 	socket.on('newArticle', function (data) {
-		$('#posts').prepend('<article id="' + data.titleId + '"class="padding_small margin_bottom_big border_top"><header><h3 data-title="' + data.titleId + '" class="text color c_turquoise_dark normal">' + data.title + '</h3><div class="text color c_sparkle"><small>' + data.postDate +' by <strong>' + data.username + '</strong></small></div></header><div data-content="postContent" class="margin_bottom_small">' + data.content + '</div></article>');
+		$('#posts').prepend('<article id="' + data._id + '"class="text color c_jet margin_bottom_big"><header><h3 data-title="' + data.titleId + '" class="text normal">' + data.title + '</h3><div><small><i class="icon-calendar"></i> ' + data.postDate +' by <strong>' + data.username + '</strong></small><small> in <strong>' + data.category + '</strong></small></div></header><div data-content="postContent" class="margin_bottom_small">' + data.content + '</div><div class="bck b_jet_light padding_small text color c_jet_medium">Tagged as: ' + data.tags + '</div></article>');
 	});
 
 	socket.on('refreshArticle', function (data) {

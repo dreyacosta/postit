@@ -63,7 +63,7 @@ module.exports = function(app, post, user, pass) {
 						category: thisPost.category,
 						username: thisPost.username,
 						postDate: date
-					}
+					};
 					convertPosts.push(temp);
 				});
 				callback(convertPosts);
@@ -92,6 +92,6 @@ module.exports = function(app, post, user, pass) {
 				}
 			});
 		}
-	}
+	};
 
 };

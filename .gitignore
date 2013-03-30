@@ -1,3 +1,6 @@
 deploy
 node_modules
 .DS_Store
+public/index.html
+public/images/david.rey.png
+public/images/adminPanel.png

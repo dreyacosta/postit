@@ -4,7 +4,9 @@ div(data-message='saved', class='bck b_white text color c_sparkle padding_small 
 	else
 		| Log...
 nav.bck.b_white
-	h4.bck.b_jet.padding_small.text.center.color.c_white Admin menu
+	h5.bck.b_jet.padding_small.text.center.color.c_white
+		i.icon-dashboard
+		|  Admin menu
 	div.padding_small
 		strong Users
 		ul.margin_bottom_small
@@ -21,7 +23,7 @@ nav.bck.b_white
 				a(href= config.url.admin.posts) Edit posts
 			li
 				i.icon-angle-right
-				a(href= config.url.create.post) New posts
+				a(href= config.url.create.post) New post
 		strong Categories
 		ul
 			li

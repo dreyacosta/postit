@@ -2,7 +2,7 @@ module.exports = function(app, config, post, user, pass, functions) {
 
 	app.get('/register', function (req, res) {
 		functions.getUsers(function (users) {
-			if (req.session.username || users == '') {
+			if (req.session.username || users === '') {
 				res.render('register', { title: 'User registration | ' + config.blogName,
 					description: 'User register',
 					session: req.session,
@@ -27,7 +27,7 @@ module.exports = function(app, config, post, user, pass, functions) {
 
 		functions.getUserByUsername(username, function (user) {
 			if (user) {
-				req.session.msg = 'El usuario ya existe';
+				req.session.msg = 'Username already exists';
 				res.redirect('/register');
 			} else {
 				if (password == confirmPass) {
@@ -42,7 +42,7 @@ module.exports = function(app, config, post, user, pass, functions) {
 
 						thisUser.save();
 					
-						req.session.msg = 'Registro completado con éxito';
+						req.session.msg = 'Complete registration';
 						res.redirect(config.url.admin.index);
 					});
 				}

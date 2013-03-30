@@ -23,8 +23,10 @@ block content
 
 						div.flex_container
 							div.flex4
-								button(name='userUpdate', class='btn normal bck b_jet text color c_white margin_small')
-									| Update
-								button(name='removeUser', id= user._id, class='btn normal bck b_jet text color c_white margin_small')
-									| Remove user
+								button(name='userUpdate', class='btn normal bck b_green text color c_white margin_small')
+									i.icon-save
+									|  Update
+								button(name='removeUser', id= user._id, class='btn normal bck b_red text color c_white margin_small')
+									.icon-remove-sign
+									|  Remove user
 		include footer

@@ -5,6 +5,13 @@ vendor(prop, args)
     -o-{prop} args
     {prop} args
 
+vendorVal(prop, args)
+    {prop} -webkit- + args
+    {prop} -moz- + args
+    {prop} -ms- + args
+    {prop} -o- + args
+    {prop} args
+
 border-radius()
     vendor('border-radius', arguments)
 
@@ -31,17 +38,29 @@ text-size-adjust()
 
 // Flex vendors
 
+flex()
+    vendorVal('display', 'flex')
+
 flex-direction()
     vendor('flex-direction', arguments)
+
+// X horizontal
 
 flex-justify-content()
     vendor('justify-content', arguments)
 
-flex-align-content()
-    vendor('align-content', arguments)
+// Y vertical
 
 flex-align-items()
     vendor('align-items', arguments)
 
+// Items properties
+
 flex-align-self()
     vendor('align-self', arguments)
+
+flex-anchor()
+    vendor('flex', arguments)
+
+flex-align-content()
+    vendor('align-content', arguments)

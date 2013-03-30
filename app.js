@@ -6,6 +6,10 @@ var express = require('express.io'),
     pass = require('pwd'),
     app = express().http().io();
 
+// Blog config
+
+var config = require('./routes/admin/config');
+
 app.configure(function() {
     app.set('port', process.env.PORT || 3001);
     app.set('views', __dirname + '/views');
@@ -31,7 +35,7 @@ app.configure('development', function() {
     app.use(express.errorHandler());
 });
 
-mongoose.connect('mongodb://localhost/blogio');
+mongoose.connect('mongodb://localhost/' + config.blogDbName);
 
 var userSchema = mongoose.Schema({
     username: String,
@@ -73,10 +77,6 @@ var postSchema = mongoose.Schema({
 });
 var post = mongoose.model('post', postSchema);
 
-
-// Blog config
-
-var config = require('./routes/admin/config');
 
 // Global functions
 
