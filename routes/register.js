@@ -2,7 +2,7 @@ module.exports = function(app, config, post, user, pass, functions) {
 
 	app.get('/register', function (req, res) {
 		functions.getUsers(function (users) {
-			if (req.session.username || users === '') {
+			if (req.session.username || users == '') {
 				res.render('register', { title: 'User registration | ' + config.blogName,
 					description: 'User register',
 					session: req.session,
@@ -10,6 +10,7 @@ module.exports = function(app, config, post, user, pass, functions) {
 				});
 				req.session.msg = '';
 			} else if (users) {
+				console.log(users);
 				res.redirect('/');
 			}
 		});
