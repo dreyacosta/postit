@@ -1352,6 +1352,22 @@ ul.circle ul {
   display: -o-flex;
   display: 'flex';
 }
+.videoWrapper {
+  position: relative;
+  padding-bottom: 50.95%;
+  padding-top: 15px;
+  height: 0;
+  margin: 15px;
+}
+.videoWrapper iframe,
+.videoWrapper object {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
 @media handheld, only screen and (max-width: 768px) {
   header.col1,
   header .col2,
