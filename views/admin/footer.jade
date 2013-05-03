@@ -1,6 +1,6 @@
 block footer
 	script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
-	script(src='/socket.io/socket.io.js')
+	script(src= config.domain.host + ':' + config.domain.port + '/socket.io/socket.io.js')
 	script(src='/javascripts/libs/jquery.autosize.js')
 	script(src='/javascripts/client.js')
 	if session.username
