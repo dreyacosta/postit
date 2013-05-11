@@ -1,294 +1,214 @@
-a
-	color a_color
-	text-decoration a_text_decoration
-
-a:hover
-	color a_hover_color
-	text-decoration a_hover_text_decoration
-
 img
-	&.big
-		width 90%
-	&.center
-		display block
-		margin 0 auto
-	&.left
-		float left
-	&.medium
-		width 70%
-	&.right
-		float right
-	&.small
-		width 30%
-		
-ol
-	margin 0 0 0 18px
+    margin img_margin
+    &.big
+        width 90%
+    &.medium
+        width 70%
+    &.small
+        width 30%
 
-li
-	padding li_padding_top_bottom li_padding_right_left
+.alignright
+    float right
 
-ul
-	list-style none
-	&.square li, &.circle li
-		margin 0 0 0 18px
-	&.square, &.square ul
-		list-style square
-	&.circle, &.circle ul
-		list-style circle
+.alignleft
+    float left
+
+.center
+    display block
+    margin 0 auto
 
 .anchor
-	width 100%
-
-.border
-	border border_density border_style rgba(0,0,0,0.2)
-
-.border_bottom
-	border-bottom border_density border_style rgba(0,0,0,0.2)
-
-.border_top
-	border-top border_density border_style rgba(0,0,0,0.2)
-
-.border_radius_small
-	border-radius(border_radius_small)
-
-.border_radius_big
-	border-radius(border_radius_big)
-
-.border_radius_circle
-	border-radius(50%)
-
-.bck
-	&.b_jet
-		background jet
-	&.b_jet_dark
-		background jet_dark
-	&.b_jet_light
-		background jet_light
-	&.b_jet_medium
-		background jet_medium
-	&.b_blue
-		background blue
-	&.b_blue_dark
-		background blue_dark
-	&.b_blue_light
-		background blue_light
-	&.b_blue_medium
-		background blue_medium
-	&.b_turquoise
-		background turquoise
-	&.b_turquoise_dark
-		background turquoise_dark
-	&.b_turquoise_light
-		background turquoise_light
-	&.b_turquoise_medium
-		background turquoise_medium
-	&.b_violet
-		background violet
-	&.b_violet_dark
-		background violet_dark
-	&.b_violet_light
-		background violet_light
-	&.b_violet_medium
-		background violet_medium
-	&.b_red
-		background red
-	&.b_red_dark
-		background red_dark
-	&.b_red_light
-		background red_light
-	&.b_red_medium
-		background red_medium
-	&.b_orange
-		background orange
-	&.b_orange_dark
-		background orange_dark
-	&.b_orange_light
-		background orange_light
-	&.b_orange_medium
-		background orange_medium
-	&.b_yellow
-		background yellow
-	&.b_yellow_dark
-		background yellow_dark
-	&.b_yellow_light
-		background yellow_light
-	&.b_yellow_medium
-		background yellow_medium
-	&.b_asparagus
-		background asparagus
-	&.b_asparagus_dark
-		background asparagus_dark
-	&.b_asparagus_light
-		background asparagus_light
-	&.b_asparagus_medium
-		background asparagus_medium
-	&.b_sparkle
-		background sparkle
-	&.b_sparkle_dark
-		background sparkle_dark
-	&.b_sparkle_light
-		background sparkle_light
-	&.b_sparkle_medium
-		background sparkle_medium
-	&.b_pink
-		background pink
-	&.b_pink_dark
-		background pink_dark
-	&.b_pink_light
-		background pink_light
-	&.b_pink_medium
-		background pink_medium
-	&.b_green
-		background green
-	&.b_green_dark
-		background green_dark
-	&.b_green_light
-		background green_light
-	&.b_green_medium
-		background green_medium
-	&.b_eggplant
-		background eggplant
-	&.b_eggplant_dark
-		background eggplant_dark
-	&.b_eggplant_light
-		background eggplant_light
-	&.b_eggplant_medium
-		background eggplant_medium
-	&.b_royalblue
-		background royalblue
-	&.b_royalblue_dark
-		background royalblue_dark
-	&.b_royalblue_light
-		background royalblue_light
-	&.b_royalblue_medium
-		background royalblue_medium
-	&.b_salmon
-		background salmon
-	&.b_salmon_dark
-		background salmon_dark
-	&.b_salmon_light
-		background salmon_light
-	&.b_salmon_medium
-		background salmon_medium
-	&.b_black
-		background black
-	&.b_black_dark
-		background black_dark
-	&.b_black_light
-		background black_light
-	&.b_black_medium
-		background black_medium
-	&.b_coral
-		background coral
-	&.b_coral_dark
-		background coral_dark
-	&.b_coral_light
-		background coral_light
-	&.b_coral_medium
-		background coral_medium
-	&.b_white
-		background white
-	&.b_mysauce1
-		background mysauce1
-	&.b_mysauce1_dark
-		background mysauce1_dark
-	&.b_mysauce1_light
-		background mysauce1_light
-	&.b_mysauce1_medium
-		background mysauce1_medium
-	&.b_mysauce2
-		background mysauce2
-	&.b_mysauce2_dark
-		background mysauce2_dark
-	&.b_mysauce2_light
-		background mysauce2_light
-	&.b_mysauce2_medium
-		background mysauce2_medium
-	&.b_mysauce3
-		background mysauce3
-	&.b_mysauce3_dark
-		background mysauce3_dark
-	&.b_mysauce3_light
-		background mysauce3_light
-	&.b_mysauce3_medium
-		background mysauce3_medium
-	&.b_mysauce4
-		background mysauce4
-	&.b_mysauce4_dark
-		background mysauce4_dark
-	&.b_mysauce4_light
-		background mysauce4_light
-	&.b_mysauce4_medium
-		background mysauce4_medium
-	&.b_mysauce5
-		background mysauce5
-	&.b_mysauce5_dark
-		background mysauce5_dark
-	&.b_mysauce5_light
-		background mysauce5_light
-	&.b_mysauce5_medium
-		background mysauce5_medium
-
-.desktop
-	display inherit !important
-
-.show_display
-	display inherit
-
-.hide_display
-	display none
-
-.inline
-	display inline-block
-
-.margin_bottom_small
-	margin-bottom margin_bottom_small
-
-.margin_bottom_big
-	margin-bottom margin_bottom_big
-
-.margin_top_small
-	margin-top margin_top_small
-
-.margin_top_big
-	margin-top margin_top_big
-
-.margin_small
-	margin margin_small
-
-.margin_big
-	margin margin_big
-
-.mobile
-	display none !important
-
-.padding_small
-	padding padding_small
-
-.padding_big
-	padding padding_big
+    width 100%
 
 .b_shadow_small
-	box-shadow shadow_small rgba(0,0,0,0.5)
+    box-shadow shadow_small rgba(0,0,0,0.5)
 
 .b_shadow_medium
-	box-shadow shadow_medium rgba(0,0,0,0.5)
+    box-shadow shadow_medium rgba(0,0,0,0.5)
 
 .b_shadow_big
-	box-shadow shadow_big rgba(0,0,0,0.5)
+    box-shadow shadow_big rgba(0,0,0,0.5)
 
-.t_shadow_small
-	text-shadow shadow_small rgba(0,0,0,0.5)
+.border
+    border-color rgba(0,0,0,0.2)
+    &.rad_small
+        border-radius(border_radius_small)
+    &.rad_medium
+        border-radius(border_radius_medium)
+    &.rad_big
+        border-radius(border_radius_big)
+    &.rad_circle
+        border-radius(50%)
+    &.top_small
+        border-top-width border_small
+    &.top_medium
+        border-top-width border_medium
+    &.top_big
+        border-top-width border_big
+    &.right_small
+        border-right-width border_small
+    &.right_medium
+        border-right-width border_medium
+    &.right_big
+        border-right-width border_big
+    &.bottom_small
+        border-bottom-width border_small
+    &.bottom_medium
+        border-bottom-width border_medium
+    &.bottom_big
+        border-bottom-width border_big
+    &.left_small
+        border-left-width border_small
+    &.left_medium
+        border-left-width border_medium
+    &.left_big
+        border-left-width border_big
+    &.all_small
+        border-width border_small
+    &.all_medium
+        border-width border_medium
+    &.all_big
+        border-width border_big
+    &.dotted
+        border-style dotted
+    &.dashed
+        border-style dashed
+    &.solid
+        border-style solid
 
-.t_shadow_medium
-	text-shadow shadow_medium rgba(0,0,0,0.5)
+.show_display
+    display inherit
 
-.t_shadow_big
-	text-shadow shadow_big rgba(0,0,0,0.5)
+.hide_display
+    display none
+
+.inline
+    display inline-block
+
+.margin_small
+    margin margin_small
+
+.margin_medium
+    margin margin_medium
+
+.margin_big
+    margin margin_big
+
+.margin_top_small
+    margin-top margin_small
+
+.margin_top_medium
+    margin-top margin_medium
+
+.margin_top_big
+    margin-top margin_big
+
+.margin_right_small
+    margin-right margin_small
+
+.margin_right_medium
+    margin-right margin_medium
+
+.margin_right_big
+    margin-right margin_big
+
+.margin_bottom_small
+    margin-bottom margin_small
+
+.margin_bottom_medium
+    margin-bottom margin_medium
+
+.margin_bottom_big
+    margin-bottom margin_big
+
+.margin_left_small
+    margin-left margin_small
+
+.margin_left_medium
+    margin-left margin_medium
+
+.margin_left_big
+    margin-left margin_big
+
+.padding_small
+    padding padding_small
+
+.padding_medium
+    padding padding_medium
+
+.padding_big
+    padding padding_big
+
+.padding_top_small
+    padding-top padding_small
+
+.padding_top_medium
+    padding-top padding_medium
+
+.padding_top_big
+    padding-top padding_big
+
+.padding_right_small
+    padding-right padding_small
+
+.padding_right_medium
+    padding-right padding_medium
+
+.padding_right_big
+    padding-right padding_big
+
+.padding_bottom_small
+    padding-bottom padding_small
+
+.padding_bottom_medium
+    padding-bottom padding_medium
+
+.padding_bottom_big
+    padding-bottom padding_big
+
+.padding_left_small
+    padding-left padding_small
+
+.padding_left_medium
+    padding-left padding_medium
+
+.padding_left_big
+    padding-left padding_big
+
+.p_absolute
+    position absolute
+
+.p_relative
+    position relative
+
+.p_fixed
+    position fixed
+
+.table
+    display table
+
+.vertical_align
+    display table-cell
+    vertical-align middle
+
+.mobile
+    display none !important
+
+.logo
+    font-size logo_font_size
 
 .site_width
-	margin 0 auto
-	max-width site_width
+    margin 0 auto
+    max-width site_width
 
 .tablet
-	display none !important
+    display none !important
+
+.t_shadow_small
+    text-shadow shadow_small rgba(0,0,0,0.5)
+
+.t_shadow_medium
+    text-shadow shadow_medium rgba(0,0,0,0.5)
+
+.t_shadow_big
+    text-shadow shadow_big rgba(0,0,0,0.5)

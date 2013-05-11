@@ -1,233 +1,64 @@
 a
-	color link
+    color a_color
+    text-decoration a_text_decoration
 
 a:hover
-	color linkHover
+    color a_hover_color
+    text-decoration a_hover_text_decoration
 
 h1, h2, h3, h4, h5, h6
-	font-weight heading_font_weight
-	line-height heading_line_height
+    font-weight heading_font_weight
+    line-height heading_line_height
+    margin heading_margin
 
 h1
-	font-size 3.5em
+    font-size 3.5em
 
 h2
-	font-size 2.5em
+    font-size 2.5em
 
 h3
-	font-size 2em
+    font-size 2em
 
 h4
-	font-size 1.5em
+    font-size 1.5em
 
 h5
-	font-size 1.2em
+    font-size 1.2em
 
 h6
-	font-size 1em
+    font-size 1em
 
 p, dl
-	line-height paragraph_line_height
-	margin-bottom paragraph_bottom
+    line-height paragraph_line_height
+    margin paragraph_margin
 
 p:last-child
-	margin-bottom 0
+    margin-bottom 0
 
-.logo
-	font-size 1.8em
+small
+    font-size font_small
 
 .text
-	&.bold
-		font-weight 700
-	&.book
-		font-weight 300
-	&.center
-		text-align center
-	&.italic
-		font-style italic
-	&.justify
-		text-align justify
-	&.left
-		text-align left
-	&.normal
-		font-weight 400
-	&.thin
-		font-weight 100
-	&.underline
-		border-bottom 1px solid
-	&.uppercase
-		text-transform uppercase
-	&.right
-		text-align right
-
-.text.color
-	&.c_jet
-		color jet
-	&.c_jet_dark
-		color jet_dark
-	&.c_jet_light
-		color jet_light
-	&.c_jet_medium
-		color jet_medium
-	&.c_blue
-		color blue
-	&.c_blue_dark
-		color blue_dark
-	&.c_blue_light
-		color blue_light
-	&.c_blue_medium
-		color blue_medium
-	&.c_turquoise
-		color turquoise
-	&.c_turquoise_dark
-		color turquoise_dark
-	&.c_turquoise_light
-		color turquoise_light
-	&.c_turquoise_medium
-		color turquoise_medium
-	&.c_violet
-		color violet
-	&.c_violet_dark
-		color violet_dark
-	&.c_violet_light
-		color violet_light
-	&.c_violet_medium
-		color violet_medium
-	&.c_red
-		color red
-	&.c_red_dark
-		color red_dark
-	&.c_red_light
-		color red_light
-	&.c_red_medium
-		color red_medium
-	&.c_orange
-		color orange
-	&.c_orange_dark
-		color orange_dark
-	&.c_orange_light
-		color orange_light
-	&.c_orange_medium
-		color orange_medium
-	&.c_yellow
-		color yellow
-	&.c_yellow_dark
-		color yellow_dark
-	&.c_yellow_light
-		color yellow_light
-	&.c_yellow_medium
-		color yellow_medium
-	&.c_asparagus
-		color asparagus
-	&.c_asparagus_dark
-		color asparagus_dark
-	&.c_asparagus_light
-		color asparagus_light
-	&.c_asparagus_medium
-		color asparagus_medium
-	&.c_sparkle
-		color sparkle
-	&.c_sparkle_dark
-		color sparkle_dark
-	&.c_sparkle_light
-		color sparkle_light
-	&.c_sparkle_medium
-		color sparkle_medium
-	&.c_pink
-		color pink
-	&.c_pink_dark
-		color pink_dark
-	&.c_pink_light
-		color pink_light
-	&.c_pink_medium
-		color pink_medium
-	&.c_green
-		color green
-	&.c_green_dark
-		color green_dark
-	&.c_green_light
-		color green_light
-	&.c_green_medium
-		color green_medium
-	&.c_eggplant
-		color eggplant
-	&.c_eggplant_dark
-		color eggplant_dark
-	&.c_eggplant_light
-		color eggplant_light
-	&.c_eggplant_medium
-		color eggplant_medium
-	&.c_royalblue
-		color royalblue
-	&.c_royalblue_dark
-		color royalblue_dark
-	&.c_royalblue_light
-		color royalblue_light
-	&.c_royalblue_medium
-		color royalblue_medium
-	&.c_salmon
-		color salmon
-	&.c_salmon_dark
-		color salmon_dark
-	&.c_salmon_light
-		color salmon_light
-	&.c_salmon_medium
-		color salmon_medium
-	&.c_black
-		color black
-	&.c_black_dark
-		color black_dark
-	&.c_black_light
-		color black_light
-	&.c_black_medium
-		color black_medium
-	&.c_coral
-		color coral
-	&.c_coral_dark
-		color coral_dark
-	&.c_coral_light
-		color coral_light
-	&.c_coral_medium
-		color coral_medium
-	&.c_white
-		color white
-	&.c_mysauce1
-		color mysauce1
-	&.c_mysauce1_dark
-		color mysauce1_dark
-	&.c_mysauce1_light
-		color mysauce1_light
-	&.c_mysauce1_medium
-		color mysauce1_medium
-	&.c_mysauce2
-		color mysauce2
-	&.c_mysauce2_dark
-		color mysauce2_dark
-	&.c_mysauce2_light
-		color mysauce2_light
-	&.c_mysauce2_medium
-		color mysauce2_medium
-	&.c_mysauce3
-		color mysauce3
-	&.c_mysauce3_dark
-		color mysauce3_dark
-	&.c_mysauce3_light
-		color mysauce3_light
-	&.c_mysauce3_medium
-		color mysauce3_medium
-	&.c_mysauce4
-		color mysauce4
-	&.c_mysauce4_dark
-		color mysauce4_dark
-	&.c_mysauce4_light
-		color mysauce4_light
-	&.c_mysauce4_medium
-		color mysauce4_medium
-	&.c_mysauce5
-		color mysauce5
-	&.c_mysauce5_dark
-		color mysauce5_dark
-	&.c_mysauce5_light
-		color mysauce5_light
-	&.c_mysauce5_medium
-		color mysauce5_medium
+    &.bold
+        font-weight font_bold_weight
+    &.book
+        font-weight font_book_weight
+    &.center
+        text-align center
+    &.italic
+        font-style italic
+    &.justify
+        text-align justify
+    &.left
+        text-align left
+    &.normal
+        font-weight font_normal_weight
+    &.thin
+        font-weight font_thin_weight
+    &.underline
+        text-decoration underline
+    &.uppercase
+        text-transform uppercase
+    &.right
+        text-align right
