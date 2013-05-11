@@ -7,21 +7,24 @@ html
 		meta(name='description', content= description)
 		title= title
 		link(rel='stylesheet', href='/font/font-awesome.min.css')
-		link(rel='stylesheet', href='/stylesheets/xpressio.theme.css')
+		link(rel='stylesheet', href='/stylesheets/xpressio.css')
 	body
-		header.border_bottom.bck.b_jet_dark.text.color.c_white
-			div.site_width.row
-				div.col7
-					nav
-						a(href= config.url.blogHome, class='text bold color c_blue_medium') #{config.blogName} 
-						| | #{config.blogDescription}
-				div.col5.text.right
-					nav
-						ul
-							li(class='btn normal margin_small bck b_blue inline')
-								i.icon-cloud-download 
-								a(href='#', class='text thin color c_white') Download
-							li(class='btn normal margin_small bck b_blue inline')
-								i.icon-github-alt 
-								a(href='#', class='text thin color c_white') View on Github
+		header.bck.b_jet_dark.text.color.c_white
+			div.site_width
+				div.table.row
+					div.vertical_align
+						nav
+							a(href= config.url.blogHome, class='text bold color c_blue_medium') #{config.blogName} 
+							| | #{config.blogDescription}
+					div.desktop.vertical_align.text.right
+						nav
+							ul
+								li(class='inline')
+									a(href='https://github.com/dreyacosta/postit/archive/master.zip', class='btn normal bck b_royalblue text color c_white') 
+										i.icon-cloud-download 
+											| Download
+								li(class='inline')
+									a(href='https://github.com/dreyacosta/postit', class='btn normal bck b_royalblue text color c_white')
+										i.icon-github-alt 
+											| View on Github
 		block content

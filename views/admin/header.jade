@@ -7,10 +7,10 @@ html
 		meta(name='description', content= description)
 		title= title
 		link(rel='stylesheet', href='/font/font-awesome.min.css')
-		link(rel='stylesheet', href='/stylesheets/xpressio.theme.css')
+		link(rel='stylesheet', href='/stylesheets/xpressio.css')
 	body.bck.b_jet_light
 		if session.username
-			header.bck.b_white.border_bottom
+			header.bck.b_white.border.solid.bottom_medium
 				div.row.site_width
 					div.col4 
 						a(href= config.url.admin.index) admin
@@ -30,4 +30,13 @@ html
 				form(action= config.url.admin.index, method='post')
 					input(id='user', name='user', placeholder='Usuario', class='anchor margin_bottom_small', required)
 					input(type='password', name='pass', placeholder='Password', class='anchor margin_bottom_small', required)
-					input(type='submit', value='Enviar', class='btn medium bck b_jet text color c_white anchor margin_bottom_small')
+					input(type='submit', value='Enviar', class='btn normal bck b_jet text color c_white anchor margin_bottom_small')
+				div
+					div.margin_bottom_small
+						strong.text.underline Demo user
+					div 
+						strong User: 
+						span postit
+					div
+						strong Pass: 
+						span demo
