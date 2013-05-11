@@ -12,6 +12,7 @@ var config = {
             index: '/admin',
             posts: '/admin/posts',
             categories: '/admin/categories',
+            logout: '/logout',
             users: '/admin/users'
         },
         create: {
