@@ -1,24 +1,24 @@
 extends header
 
 block content
-	if session.username
-		section
-			section.padding_big.row
-				div.col4
-					include sidebar
-				div.col8
-					for user in users
-						div(id= user._id, class='bck b_white border solid top_medium bottom_medium padding_small margin_bottom_small')
-							div.table.row
-								div.col12.vertical_align
-									div
-										h5.text.color.c_mysauce2 #{user.username}
-										| #{user.email}
-								div.vertical_align.text.right
-									a(href= config.url.edit.user + '/' + user._id, class='btn bck b_green text color c_white padding_small margin_right_small')
-										i.icon-save
-										|  Edit
-									a(href= config.url.remove.user + '/' + user._id, class='btn bck b_red text color c_white padding_small margin_right_small')
-										i.icon-remove-sign
-										|  Remove
-		include footer
+    if session.username
+        section
+            section.padding_big.row
+                div.col4
+                    include sidebar
+                div.col8
+                    for user in users
+                        div(id= user._id, class='bck b_white border solid top_medium bottom_medium padding_small margin_bottom_small')
+                            div.table.row
+                                div.col12.vertical_align
+                                    div
+                                        h5.text.color.c_mysauce2 #{user.username}
+                                        | #{user.email}
+                                div.vertical_align.text.right
+                                    a(href= config.url.edit.user + '/' + user._id, class='btn bck b_green text color c_white padding_small margin_right_small')
+                                        i.icon-save
+                                        |  Edit
+                                    a(href= config.url.remove.user + '/' + user._id, class='btn bck b_red text color c_white padding_small margin_right_small')
+                                        i.icon-remove-sign
+                                        |  Remove
+        include footer

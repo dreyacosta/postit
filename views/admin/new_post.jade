@@ -1,25 +1,25 @@
 extends header
 
 block content
-	if session.username
-		section
-			section.padding_big.row
-				div.col4
-					include sidebar
-				div.col8
-					if session.msg == 'Post publicado'
-						div.bck.b_green_light.text.center.padding_small.margin_bottom_small #{session.msg}
-					if session.msg == 'El ID está ocupado'
-						div.bck.b_red_light.text.center.padding_small.margin_bottom_small #{session.msg}
-					if session.msg == 'Post borrado'
-						div.bck.b_green_light.text.center.padding_small.margin_bottom_small #{session.msg}
-					form(action= config.url.admin.posts, class='bck b_white padding_small', method='post')
-						input(id='title', name='title', placeholder='Your title', class='anchor margin_bottom_small', required)
-						input(id='titleId', name='titleId', placeholder='Slug automatic generation', class='anchor margin_bottom_small', block,required)
-						input(id='category', name='category', placeholder='Category', class='anchor margin_bottom_small', required)
-						input(id='tags', name='tags', placeholder='Post tags (separate by coma)', class='anchor margin_bottom_small', required)
-						input(id='description', name='description', placeholder='Post description (important for SEO)', class='anchor margin_bottom_small', required)
-						textarea(id='content', name='content', placeholder='Content...', class='anchor margin_bottom_small', required)
-						input(id='send', type='submit', value='Send...', class='btn normal bck b_jet text color c_white anchor')
+    if session.username
+        section
+            section.padding_big.row
+                div.col4
+                    include sidebar
+                div.col8
+                    if session.msg == 'Post publicado'
+                        div.bck.b_green_light.text.center.padding_small.margin_bottom_small #{session.msg}
+                    if session.msg == 'El ID está ocupado'
+                        div.bck.b_red_light.text.center.padding_small.margin_bottom_small #{session.msg}
+                    if session.msg == 'Post borrado'
+                        div.bck.b_green_light.text.center.padding_small.margin_bottom_small #{session.msg}
+                    form(action= config.url.admin.posts, class='bck b_white padding_small', method='post')
+                        input(id='title', name='title', placeholder='Your title', class='anchor margin_bottom_small', required)
+                        input(id='titleId', name='titleId', placeholder='Slug automatic generation', class='anchor margin_bottom_small', block,required)
+                        input(id='category', name='category', placeholder='Category', class='anchor margin_bottom_small', required)
+                        input(id='tags', name='tags', placeholder='Post tags (separate by coma)', class='anchor margin_bottom_small', required)
+                        input(id='description', name='description', placeholder='Post description (important for SEO)', class='anchor margin_bottom_small', required)
+                        textarea(id='content', name='content', placeholder='Content...', class='anchor margin_bottom_small', required)
+                        input(id='send', type='submit', value='Send...', class='btn normal bck b_jet text color c_white anchor')
 
-		include footer
+        include footer

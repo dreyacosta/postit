@@ -1,23 +1,23 @@
 extends header
 
 block content
-	if session.username
-		section
-			section.padding_big.row
-				div.col4
-					include sidebar
-				div.col8
-					for post in posts
-						div(id= post._id, class='bck b_white border solid top_medium bottom_medium padding_small margin_bottom_small')
-							div.table.row
-								div.col12.vertical_align
-									h5.text.color.c_mysauce2 #{post.title}
-									span.text.color.c_jet #{post.postDate} by #{post.username} @ #{post.category}
-								div.vertical_align.text.right
-									a(href= config.url.edit.post + '/' + post._id, class='btn bck b_green text color c_white padding_small margin_right_small')
-										i.icon-save
-										|  Edit
-									a(href= config.url.remove.post + '/' + post._id , class='btn bck b_red text color c_white padding_small margin_right_small')
-										i.icon-remove-sign
-										|  Remove
-		include footer
+    if session.username
+        section
+            section.padding_big.row
+                div.col4
+                    include sidebar
+                div.col8
+                    for post in posts
+                        div(id= post._id, class='bck b_white border solid top_medium bottom_medium padding_small margin_bottom_small')
+                            div.table.row
+                                div.col12.vertical_align
+                                    h5.text.color.c_mysauce2 #{post.title}
+                                    span.text.color.c_jet #{post.postDate} by #{post.username} @ #{post.category}
+                                div.vertical_align.text.right
+                                    a(href= config.url.edit.post + '/' + post._id, class='btn bck b_green text color c_white padding_small margin_right_small')
+                                        i.icon-save
+                                        |  Edit
+                                    a(href= config.url.remove.post + '/' + post._id , class='btn bck b_red text color c_white padding_small margin_right_small')
+                                        i.icon-remove-sign
+                                        |  Remove
+        include footer

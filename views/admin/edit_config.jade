@@ -1,19 +1,19 @@
 extends header
 
 block content
-	if session.username
-		section
-			section.padding_big.row
-				div.col4
-					include sidebar
-				div.col8
-					h1 #{config.blogName}
-					form(action='/inmyhouse/config', method='post')
-						input(id='blogId', name='blogId', placeholder='Blog id', class='anchor margin_bottom_small', value= config._id)
-						input(id='blogName', name='blogName', placeholder='Blog name', class='anchor margin_bottom_small', value= config.blogName, required)
-						input(id='blogDescription', name='blogDescription', placeholder='Blog description', class='anchor margin_bottom_small', value= config.blogDescription, required)
-						input(id='urlAdmin', name='urlAdmin', placeholder='Admin url', class='anchor margin_bottom_small', value= config.urlAdmin, required)
+    if session.username
+        section
+            section.padding_big.row
+                div.col4
+                    include sidebar
+                div.col8
+                    h1 #{config.blogName}
+                    form(action='/inmyhouse/config', method='post')
+                        input(id='blogId', name='blogId', placeholder='Blog id', class='anchor margin_bottom_small', value= config._id)
+                        input(id='blogName', name='blogName', placeholder='Blog name', class='anchor margin_bottom_small', value= config.blogName, required)
+                        input(id='blogDescription', name='blogDescription', placeholder='Blog description', class='anchor margin_bottom_small', value= config.blogDescription, required)
+                        input(id='urlAdmin', name='urlAdmin', placeholder='Admin url', class='anchor margin_bottom_small', value= config.urlAdmin, required)
 
-						input(id='send', type='submit', value='Send...', class='btn normal bck b_jet text color c_white anchor')
+                        input(id='send', type='submit', value='Send...', class='btn normal bck b_jet text color c_white anchor')
 
-		include footer
+        include footer
