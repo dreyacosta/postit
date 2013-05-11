@@ -43,4 +43,11 @@ module.exports = function(app, config, post, user, pass, functions) {
 		});
 	});
 
+	// Logout
+
+	app.get(config.url.admin.logout, function(req, res) {
+		req.session.destroy();
+		res.redirect('/');
+	});
+
 };
