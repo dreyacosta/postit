@@ -1011,7 +1011,7 @@ img.small {
   border-top-width: 2px;
 }
 .border.top_big {
-  border-top-width: 10px;
+  border-top-width: 6px;
 }
 .border.right_small {
   border-right-width: 1px;
@@ -1020,7 +1020,7 @@ img.small {
   border-right-width: 2px;
 }
 .border.right_big {
-  border-right-width: 10px;
+  border-right-width: 6px;
 }
 .border.bottom_small {
   border-bottom-width: 1px;
@@ -1029,7 +1029,7 @@ img.small {
   border-bottom-width: 2px;
 }
 .border.bottom_big {
-  border-bottom-width: 10px;
+  border-bottom-width: 6px;
 }
 .border.left_small {
   border-left-width: 1px;
@@ -1038,7 +1038,7 @@ img.small {
   border-left-width: 2px;
 }
 .border.left_big {
-  border-left-width: 10px;
+  border-left-width: 6px;
 }
 .border.all_small {
   border-width: 1px;
@@ -1047,7 +1047,7 @@ img.small {
   border-width: 2px;
 }
 .border.all_big {
-  border-width: 10px;
+  border-width: 6px;
 }
 .border.dotted {
   border-style: dotted;
