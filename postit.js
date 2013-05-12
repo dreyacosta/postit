@@ -11,7 +11,7 @@ var express = require('express.io'),
 var config = require('./routes/admin/config');
 
 app.configure(function() {
-    app.set('port', process.env.PORT || 3001);
+    app.set('port', process.env.PORT || config.domain.port);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
     app.use(express.favicon());

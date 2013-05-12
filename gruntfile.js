@@ -1,43 +1,66 @@
 module.exports = function(grunt) {
 
-	// Project configuration.
-	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json'),
+    // Project configuration.
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
 
-		jshint: {
-			all: ['Gruntfile.js', 'routes/*.js', 'routes/admin/*.js', 'public/javascripts/*.js']
-		},
+        jshint: {
+            all: ['gruntfile.js', 'routes/*.js', 'routes/admin/*.js', 'public/javascripts/*.js']
+        },
 
-		uglify: {
-			compress: {
-				files: {
-					'deploy/public/javascripts/admin.js': ['public/javascripts/admin.js'],
-					'deploy/public/javascripts/client.js': ['public/javascripts/client.js'],
-					'deploy/public/javascripts/libs/jquery.autosize.js': ['public/javascripts/libs/jquery.autosize.js']
-				}
-			}
-		},
+        uglify: {
+            compress: {
+                files: [
+                    {expand: true, src: ['postit.js', 'routes/*.js', 'routes/*/*.js', 'public/javascripts/*.js', 'public/javascripts/*/*.js'], dest: 'www/'}
+                ]
+            }
+        },
 
-		copy: {
-			target: {
-				// options: { cwd: 'path/to/sources' },
-				files: { 'deploy/': ['public/font/*', 'public/images/**', 'public/stylesheets/**', 'routes/**', 'views/**', 'app.js', 'package.json'] }
-			}
-		},
+        imagemin: {                          
+            dist: {                            
+                options: {                       
+                    optimizationLevel: 3
+                },
+                files: [
+                    {expand: true, src: ['public/images/*'], dest: 'www/'}
+                ]
+            }
+        },
 
-		watch: {
-			files: ['routes/**', 'public/javascripts/*.js'],
-			tasks: ['jshint']
-		}
-	});
+        copy: {
+            target: {
+                files: [
+                    {
+                        expand: true,
+                        src: [
+                            '*.json',
+                            '!gruntfile.js',
+                            'public/**',
+                            '!public/images/**',
+                            '!public/javascripts/**',
+                            '!public/stylesheets/*.styl',
+                            'views/**'
+                        ],
+                        dest: 'www/'
+                    }
+                ]
+            }
+        },
 
-	// Load the plugin that provides the "uglify" task.
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-copy');
+        watch: {
+            files: ['routes/**', 'public/javascripts/*.js'],
+            tasks: ['jshint']
+        }
+    });
 
-	// Default task(s).
-	grunt.registerTask('default', ['jshint', 'uglify', 'copy', 'watch']);
+    // Load the plugin that provides the "uglify" task.
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+
+    // Default task(s).
+    grunt.registerTask('default', ['jshint', 'uglify', 'imagemin', 'copy']);
 
 };

@@ -1,21 +1,21 @@
 block sidebar
-	aside.col3.text.color.c_jet
-		div.margin_bottom_big.margin_top_big
-			p Small CMS for real-time blogging made with NodeJS
-		h6.text.uppercase.normal.color.c_sparkle_dark Administration
-		ul.margin_bottom_big
-			li.border_bottom
-				i.icon-circle-arrow-right
-				a(href= config.url.admin.index)
-					| Admin panel
-		h6.text.uppercase.normal.color.c_sparkle_dark Categories
-		ul.margin_bottom_big
-			each category in categories
-				li.border_bottom
-					i.icon-circle-arrow-right 
-					a(href='/category/' + category)
-						| #{category}
-		h6.text.uppercase.normal.color.c_sparkle_dark Made with
-		div.margin_bottom_big.bck.b_asparagus_dark.padding_small.border_radius_small
-			a(href='http://nodejs.org/', target='_blank')
-				img(src='http://nodejs.org/images/logo.png', class='medium center')
+    aside.col3.text.color.c_jet
+        div.margin_bottom_big.margin_top_big
+            p Small CMS for real-time blogging made with NodeJS
+        h6.text.uppercase.normal.color.c_sparkle_dark Administration
+        ul.margin_bottom_big
+            li.border.solid.bottom_small
+                i.icon-circle-arrow-right
+                a(href= config.url.admin.index)
+                    | Admin panel
+        h6.text.uppercase.normal.color.c_sparkle_dark Categories
+        ul.margin_bottom_big
+            each category in categories
+                li.border.solid.bottom_small
+                    i.icon-circle-arrow-right 
+                    a(href='/category/' + category)
+                        | #{category}
+        h6.text.uppercase.normal.color.c_sparkle_dark Made with
+        div.bck.b_asparagus_dark.padding_small.border.solid.rad_small
+            a(href='http://nodejs.org/', target='_blank')
+                img(src='http://nodejs.org/images/logo.png', class='medium center')

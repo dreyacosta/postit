@@ -1,29 +1,29 @@
 extends header
 
 block content
-	section.site_width.row
-		div.col9
-			section#posts.margin_top_big
-				article(id='' + post._id + '', class='text color c_jet margin_bottom_big')
-					header
-						h3(data-title= post.titleId, class='text normal') 
-							a(href= config.url.blog.post + '/' + post.titleId) #{post.title}
-						div
-							small
-								i.icon-calendar 
-								| #{post.postDate} by 
-								strong #{post.username} #{post.extra} 
-							small in 
-								strong 
-									span(data-category= post.category)
-										a(href= config.url.blog.category + '/' + post.category) #{post.category}
-					div(data-content='postContent', class='margin_bottom_small')
-						| !{post.content}
-					div.bck.b_jet_light.padding_small.text.color.c_jet_medium
-						small
-							| Tagged as:
-							each tag in post.tags
-								span(data-tags= post.tag, class='') 
-									a(href= config.url.blog.tag + '/' + tag) #{tag}
-		include sidebar
-	include footer
+    section.site_width.row
+        div.col9
+            section#posts.margin_top_big
+                article(id='' + post._id + '', class='text color c_jet margin_bottom_big')
+                    header
+                        h3(data-title= post.titleId, class='text normal') 
+                            a(href= config.url.blog.post + '/' + post.titleId) #{post.title}
+                        div
+                            small
+                                i.icon-calendar 
+                                | #{post.postDate} by 
+                                strong #{post.username} #{post.extra} 
+                            small in 
+                                strong 
+                                    span(data-category= post.category)
+                                        a(href= config.url.blog.category + '/' + post.category) #{post.category}
+                    div(data-content='postContent', class='margin_bottom_small')
+                        | !{post.content}
+                    div.bck.b_jet_light.padding_small.text.color.c_jet_medium
+                        small
+                            | Tagged as:
+                            each tag in post.tags
+                                span(data-tags= post.tag, class='') 
+                                    a(href= config.url.blog.tag + '/' + tag) #{tag}
+        include sidebar
+    include footer

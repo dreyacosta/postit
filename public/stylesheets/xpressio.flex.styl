@@ -1,38 +1,42 @@
 .flex
-	flex()
-	&.row
-		flex-direction(row)
-	&.column
-		flex-direction(column)
-	&.x_start
-		flex-justify-content(start)
-	&.x_center
-		flex-justify-content(center)
-	&.x_start
-		flex-justify-content(start)
-	&.x_end
-		flex-justify-content(end)
-	&.y_start
-		flex-align-items(flex-start)
-	&.y_center
-		flex-align-items(center)
-	&.y_end
-		flex-align-items(flex-end)
-	&.y_stretch
-		flex-align-items(stretch)
-	& > .item_start
-		flex-align-self(flex-start)
-	& > .item_end
-		flex-align-self(flex-end)
-	& > .item_center
-		flex-align-self(center)
-	& > .item_stretch
-		flex-align-self(stretch)
-	& > .f1
-		flex-anchor(1)
-	& > .f2
-		flex-anchor(2)
-	& > .f3
-		flex-anchor(3)
-	& > .f4
-		flex-anchor(4)
+    flexbox()
+    &.row
+        flex-direction(row)
+    &.column
+        flex-direction(column)
+    &.x_start
+        flex-justify-content(start)
+    &.x_center
+        flex-justify-content(center)
+    &.x_start
+        flex-justify-content(start)
+    &.x_justify
+        flex-justify-content(space-between)
+    &.x_end
+        flex-justify-content(end)
+    &.y_start
+        flex-align-items(flex-start)
+    &.y_center
+        flex-align-items(center)
+    &.y_end
+        flex-align-items(flex-end)
+    &.y_stretch
+        flex-align-items(stretch)
+    &.y_space-between
+        flex-align-items(space-between)
+    & > .item_start
+        flex-align-self(flex-start)
+    & > .item_end
+        flex-align-self(flex-end)
+    & > .item_center
+        flex-align-self(center)
+    & > .item_stretch
+        flex-align-self(stretch)
+    & > .f1
+        flex-anchor(1)
+    & > .f2
+        flex-anchor(2)
+    & > .f3
+        flex-anchor(3)
+    & > .f4
+        flex-anchor(4)

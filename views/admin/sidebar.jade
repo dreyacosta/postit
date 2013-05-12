@@ -1,31 +1,30 @@
 div(data-message='saved', class='bck b_white text color c_sparkle padding_small margin_bottom_small') 
-	if session.msg
-		| #{session.msg}
-	else
-		| Log...
-nav.bck.b_white
-	h5.bck.b_jet.padding_small.text.center.color.c_white
-		i.icon-dashboard
-		|  Admin menu
-	div.padding_small
-		strong Users
-		ul.margin_bottom_small
-			li
-				i.icon-angle-right
-				a(href= config.url.admin.users) Edit users
-			li
-				i.icon-angle-right
-				a(href= config.url.create.user) New user
-		strong Posts
-		ul.margin_bottom_small
-			li
-				i.icon-angle-right
-				a(href= config.url.admin.posts) Edit posts
-			li
-				i.icon-angle-right
-				a(href= config.url.create.post) New post
-		strong Categories
-		ul
-			li
-				i.icon-angle-right
-				a(href= config.url.admin.categories) Change category name
+    if session.msg
+        | #{session.msg}
+    else
+        | Log...
+nav#admin_menu.bck.b_white
+    h5.bck.b_jet.padding_small.text.center.color.c_white
+        i.icon-dashboard
+        |  Admin menu
+    div.padding_small
+        strong Users
+        ul.margin_bottom_small
+            li
+                a(href= config.url.admin.users) Edit users
+            li
+                a(href= config.url.create.user) New user
+        strong Posts
+        ul.margin_bottom_small
+            li
+                a(href= config.url.admin.posts) Edit posts
+            li
+                a(href= config.url.create.post) New post
+        strong Categories
+        ul.margin_bottom_small
+            li
+                a(href= config.url.admin.categories) Change category name
+        ul.border.solid.top_small
+            li
+                strong
+                    a(href='/logout') Logout

@@ -2,9 +2,9 @@
 ### Experimental CMS for real-time blogging made with NodeJS
 
 ## What's postit?
-A little CMS for real-time blogging made with NodeJS, ExpressJS and Socket.io.
+A little experimental CMS for real-time blogging made with NodeJS, ExpressJS and Socket.io.
 
-+ Site: Coming soon...
++ Site: http://postit.xpress.io
 + Demo: http://youtu.be/rHXb75fw208
 
 ## How to install
@@ -19,14 +19,16 @@ A little CMS for real-time blogging made with NodeJS, ExpressJS and Socket.io.
 1. Clone repo into your NodeJS server.
 2. cd to app folder and npm install.
 3. Config blog name and urls @ routes/admin/config.js
-4. Run app: node app.js
+4. Run app: node postit.js
 5. Go to http://localhost:3001/register to register your first user.
 6. Enjoy!
 
 ## Features
 
-+ Admin panel (Users, Posts, Categories).
-+ Real time edition for posts.
++ Easy administration panel.
++ Real time post and update.
++ Ready for SEO.
++ URL customization.
 
 ### Feel free to contribute
 

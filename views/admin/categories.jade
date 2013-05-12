@@ -1,22 +1,22 @@
 extends header
 
 block content
-	if session.username
-		section
-			section.padding_big.row
-				div.col4
-					include sidebar
-				div.col8
-					if session.msg == 'Categoria creada'
-						div.bck.b_green_light.text.center.padding_small.margin_bottom_small #{session.msg}
-					if session.msg == 'La categoria ya está creada'
-						div.bck.b_red_light.text.center.padding_small.margin_bottom_small #{session.msg}
-					if session.msg == 'Categoria borrada'
-						div.bck.b_green_light.text.center.padding_small.margin_bottom_small #{session.msg}
-					form(action= config.url.admin.categories, class='bck b_white padding_small', method='post')
-						select(id='category', name='category', class='anchor margin_bottom_small', required)
-							each category in categories
-								option(value= category) #{category}
-						input(id='newCategory', name='newCategory', placeholder='Enter new category name', class='anchor margin_bottom_small', required)
-						input(type='submit', id="send", value='Send', class='btn medium bck b_jet text color c_white anchor')
-		include footer
+    if session.username
+        section
+            section.padding_big.row
+                div.col4
+                    include sidebar
+                div.col8
+                    if session.msg == 'Categoria creada'
+                        div.bck.b_green_light.text.center.padding_small.margin_bottom_small #{session.msg}
+                    if session.msg == 'La categoria ya está creada'
+                        div.bck.b_red_light.text.center.padding_small.margin_bottom_small #{session.msg}
+                    if session.msg == 'Categoria borrada'
+                        div.bck.b_green_light.text.center.padding_small.margin_bottom_small #{session.msg}
+                    form(action= config.url.admin.categories, class='bck b_white padding_small', method='post')
+                        select(id='category', name='category', class='anchor margin_bottom_small', required)
+                            each category in categories
+                                option(value= category) #{category}
+                        input(id='newCategory', name='newCategory', placeholder='Enter new category name', class='anchor margin_bottom_small', required)
+                        input(type='submit', id="send", value='Send', class='btn normal bck b_jet text color c_white anchor')
+        include footer

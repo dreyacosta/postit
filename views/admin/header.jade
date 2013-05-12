@@ -1,33 +1,42 @@
 doctype 5
 html
-	head
-		meta(charset='utf-8')
-		meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-		meta(name='viewport', content='width=device-width, initial-scale=1')
-		meta(name='description', content= description)
-		title= title
-		link(rel='stylesheet', href='/font/font-awesome.min.css')
-		link(rel='stylesheet', href='/stylesheets/xpressio.theme.css')
-	body.bck.b_jet_light
-		if session.username
-			header.bck.b_white.border_bottom
-				div.row.site_width
-					div.col4 
-						a(href= config.url.admin.index) admin
-							b panel
-						|  |  
-						a(href= config.url.blogHome) Go to blog
-					div.col8.text.right.uppercase #{title}
-			block content
-		else
-			section.site_width.padding_big
-				if session.msg == 'Incorrect username or password'
-					div.bck.b_red_light.text.center.padding_small.margin_bottom_small
-						| #{session.msg}
-				if session.msg == 'Complete registration'
-					div.bck.b_green_light.text.center.padding_small.margin_bottom_small
-						| #{session.msg}
-				form(action= config.url.admin.index, method='post')
-					input(id='user', name='user', placeholder='Usuario', class='anchor margin_bottom_small', required)
-					input(type='password', name='pass', placeholder='Password', class='anchor margin_bottom_small', required)
-					input(type='submit', value='Enviar', class='btn medium bck b_jet text color c_white anchor margin_bottom_small')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(name='description', content= description)
+        title= title
+        link(rel='stylesheet', href='/font/font-awesome.min.css')
+        link(rel='stylesheet', href='/stylesheets/xpressio.css')
+    body.bck.b_jet_light
+        if session.username
+            header.bck.b_white.border.solid.bottom_medium
+                div.row.site_width
+                    div.col4 
+                        a(href= config.url.admin.index) admin
+                            b panel
+                        |  |  
+                        a(href= config.url.blogHome) Go to blog
+                    div.col8.text.right.uppercase #{title}
+            block content
+        else
+            section.site_width.padding_big
+                if session.msg == 'Incorrect username or password'
+                    div.bck.b_red_light.text.center.padding_small.margin_bottom_small
+                        | #{session.msg}
+                if session.msg == 'Complete registration'
+                    div.bck.b_green_light.text.center.padding_small.margin_bottom_small
+                        | #{session.msg}
+                form(action= config.url.admin.index, method='post')
+                    input(id='user', name='user', placeholder='Usuario', class='anchor margin_bottom_small', required)
+                    input(type='password', name='pass', placeholder='Password', class='anchor margin_bottom_small', required)
+                    input(type='submit', value='Enviar', class='btn normal bck b_jet text color c_white anchor margin_bottom_small')
+                div
+                    div.margin_bottom_small
+                        strong.text.underline Demo user
+                    div 
+                        strong User: 
+                        span postit
+                    div
+                        strong Pass: 
+                        span demo
