@@ -25,8 +25,10 @@ A little experimental CMS for real-time blogging made with NodeJS, ExpressJS and
 
 ## Features
 
-+ Admin panel (Users, Posts, Categories).
-+ Real time edition for posts.
++ Easy administration panel.
++ Real time post and update.
++ Ready for SEO.
++ URL customization.
 
 ### Feel free to contribute
 
