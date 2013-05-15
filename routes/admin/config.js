@@ -5,7 +5,12 @@ var config = {
     },
     blogName: 'postit',
     blogDescription: 'Small lightweight and real-time system blogging',
-    blogDbName: 'blogio',
+    mongodb: {
+        credentials: '', // username:password@
+        host: 'localhost',
+        port: ':27017', // :port
+        dbName: 'blogio'
+    },
     url: {
         blogHome: '/demo',
         admin: {
