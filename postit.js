@@ -35,7 +35,9 @@ app.configure('development', function() {
     app.use(express.errorHandler());
 });
 
-mongoose.connect('mongodb://localhost/' + config.blogDbName);
+mongoose.connect('mongodb://' + config.mongodb.credentials + config.mongodb.host + config.mongodb.port + '/' + config.mongodb.dbName, function(err) {
+    if (err) throw err;
+});
 
 var userSchema = mongoose.Schema({
     username: String,
