@@ -80,6 +80,16 @@ var postSchema = mongoose.Schema({
 var post = mongoose.model('post', postSchema);
 
 
+// Get JSON with config URLs
+
+app.get(config.url.getUrlConfig, function (req, res) {
+    if (req.session.username) {
+        res.send(config.url);
+    } else {
+        res.send(404, 'Something broke!');
+    }
+});
+
 // Global functions
 
 var functions = require('./routes/functions')(app, post, user, pass);
