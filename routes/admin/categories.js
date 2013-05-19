@@ -25,9 +25,9 @@ module.exports = function(app, config, post, user, pass, functions) {
             posts.forEach(function (post) {
                 post.category = newCategory;
                 post.save();
-                req.session.msg = 'Category name changed';
-                res.redirect(config.url.admin.categories);
             });
+            req.session.msg = 'Category name changed';
+            res.redirect(config.url.admin.categories);
         });
     });
 
