@@ -89,23 +89,30 @@ module.exports = function(app, config, post, user, pass, functions) {
     // Edit post
 
     app.get(config.url.edit.post + '/:id', function (req, res) {
-        var id = req.param('id');
+        if (req.session.username) {
+            var id = req.param('id');
 
-        functions.getPostById(id, function (post) {
-            res.render('admin/edit_post', {
-                title: 'Edit posts | ' + config.blogName,
-                description: 'Posts page',
-                session: req.session,
-                post: post,
-                config: config
+            functions.getPostById(id, function (post) {
+                res.send(post);
+
+                // res.render('admin/edit_post', {
+                //     title: 'Edit posts | ' + config.blogName,
+                //     description: 'Posts page',
+                //     session: req.session,
+                //     post: post,
+                //     config: config
+                // });
             });
-        });
+        } else {
+            res.redirect(config.url.admin.index)
+        }
     });
 
     // Remove post
 
-    app.get(config.url.remove.post + '/:id', function (req, res) {
+    app.post(config.url.remove.post, function (req, res) {
         var id = req.param('id');
+        console.log('post delete ' + id);
 
         if (req.session.username) {
             functions.getPostById(id, function (post) {

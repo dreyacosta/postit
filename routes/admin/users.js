@@ -36,19 +36,21 @@ module.exports = function(app, config, post, user, pass, functions) {
         var id = req.param('id');
 
         functions.getUserById(id, function (user) {
-            res.render('admin/edit_user', {
-                title: 'User edition | ' + config.blogName,
-                description: 'Users page',
-                session: req.session,
-                user: user,
-                config: config
-            });
+            res.send(user);
+
+            // res.render('admin/edit_user', {
+            //     title: 'User edition | ' + config.blogName,
+            //     description: 'Users page',
+            //     session: req.session,
+            //     user: user,
+            //     config: config
+            // });
         });
     });
 
     // Remove user
 
-    app.get(config.url.remove.user + '/:id', function (req, res) {
+    app.post(config.url.remove.user, function (req, res) {
         var id = req.param('id');
 
         if (req.session.username) {
@@ -57,7 +59,7 @@ module.exports = function(app, config, post, user, pass, functions) {
                 res.redirect(config.url.admin.users);
             });
         } else {
-            res.redirect(config.url.admin.index);
+            res.redirect(config.url.admin.users);
         }
     });
 
