@@ -40,6 +40,7 @@ text-size-adjust()
 
 flexbox()
     vendorVal('display', 'flex')
+    display -moz-box
 
 flex-direction()
     vendor('flex-direction', arguments)
@@ -61,6 +62,7 @@ flex-align-self()
 
 flex-anchor()
     vendor('flex', arguments)
+    vendor('-moz-box-flex', arguments)
 
 flex-align-content()
     vendor('align-content', arguments)
