@@ -29,7 +29,7 @@ module.exports = function(app, config, post, user, pass, functions) {
         functions.getUserByUsername(username, function (user) {
             if (user) {
                 req.session.msg = 'Username already exists';
-                res.redirect('/register');
+                res.redirect(config.url.admin.users);
             } else {
                 if (password == confirmPass) {
                     pass.hash(password, function(err, salt, hash){
@@ -44,7 +44,7 @@ module.exports = function(app, config, post, user, pass, functions) {
                         thisUser.save();
                     
                         req.session.msg = 'Complete registration';
-                        res.redirect(config.url.admin.index);
+                        res.redirect(config.url.admin.users);
                     });
                 }
             }
