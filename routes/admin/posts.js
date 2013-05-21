@@ -104,7 +104,7 @@ module.exports = function(app, config, post, user, pass, functions) {
                 // });
             });
         } else {
-            res.redirect(config.url.admin.index)
+            res.redirect(config.url.admin.index);
         }
     });
 
