@@ -16,16 +16,18 @@ module.exports = function(app, config, post, user, pass, functions) {
         });
     });
 
+    app.io.route('postEdition', function (req, res) {
+        req.io.broadcast('postEdition', req.data);
+        req.io.broadcast('message', '<div class="bck b_yellow_light text center bold color c_yellow">' + req.session.username + ' is editing ' + req.data.title + ' post.</div>');
+    });
+
     app.io.route('updateArticle', function (req, res) {
-        console.log(req);
         var id = req.data.id;
         var content = req.data.content;
         content = content.replace(/<script>/gi, "");
         content = content.replace(/<\/script>/gi, "");
 
         var postTags = req.data.tags;
-
-        console.log(postTags);
 
         var tags = postTags.split(",");
         var temp = [];
@@ -36,21 +38,18 @@ module.exports = function(app, config, post, user, pass, functions) {
             temp.push(thisTag);
         }
 
-        console.log('after ' + content);
-
         functions.getPostByDate(function (posts) {
             var flag = 0;
             posts.forEach(function (post) {
-                if (post.titleId == req.data.newId && post._id != id) {
-                    console.log('Ya existe ID');
-                    req.io.emit('message', 'The post ID exist. Change the slug ;-)');
+                if (post.titleId == req.data.slug && post._id != id) {
+                    req.io.emit('message', '<div class="bck b_red_light text center bold color c_red">The post SLUG exist. Change it ;-)</div>');
                     flag = 1;
                 }
             });
             if (flag === 0) {
                 functions.getPostById(id, function (post) {
                     if(post) {
-                        post.titleId = req.data.newId;
+                        post.titleId = req.data.slug;
                         post.title = req.data.title;
                         post.category = req.data.category;
                         post.tags = temp;
@@ -59,9 +58,7 @@ module.exports = function(app, config, post, user, pass, functions) {
                         post.save();
 
                         req.io.broadcast('refreshArticle', post);
-                        req.io.emit('message', 'Saved');
-
-                        console.log('Post saved');
+                        req.io.emit('message', '<div class="bck b_green_light text center bold color c_green">Saved</div>');
                     }
                 });
             }
@@ -80,7 +77,7 @@ module.exports = function(app, config, post, user, pass, functions) {
 
                 user.save();
 
-                req.io.emit('message', 'User update');
+                req.io.emit('message', '<div class="bck b_green_light text center bold color c_green">Saved</div>');
             }
         });
     });
