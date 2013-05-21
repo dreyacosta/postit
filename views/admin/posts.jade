@@ -1,23 +1,47 @@
 extends header
 
 block content
-    if session.username
-        section
-            section.padding_big.row
-                div.col4
-                    include sidebar
-                div.col8
-                    for post in posts
-                        div(id= post._id, class='bck b_white border solid top_medium bottom_medium padding_small margin_bottom_small')
-                            div.table.row
-                                div.col12.vertical_align
-                                    h5.text.color.c_mysauce2 #{post.title}
-                                    span.text.color.c_jet #{post.postDate} by #{post.username} @ #{post.category}
-                                div.vertical_align.text.right
-                                    a(href= config.url.edit.post + '/' + post._id, class='btn bck b_green text color c_white padding_small margin_right_small')
-                                        i.icon-save
-                                        |  Edit
-                                    a(href= config.url.remove.post + '/' + post._id , class='btn bck b_red text color c_white padding_small margin_right_small')
-                                        i.icon-remove-sign
-                                        |  Remove
-        include footer
+    section(id='list', class='f4 flex column bck b_royalblue_dark')
+        include logs
+        section(data-role='addPost', class='bck b_white text center bold padding_small pointer') Add new post +
+        section(class='bck b_royalblue_dark text color c_white pointer scroll')
+            for post in posts
+                div(id= post._id, data-label='postSelect', class='padding_medium border solid bottom_small')
+                    h5.text.bold.color.c_jet_light #{post.title}
+                    div.text.color.c_jet_medium #{post.postDate} by #{post.username} @ #{post.category}
+    section(id='content', class='f12 flex column bck b_jet_light')
+        include navigation
+        div(id='back', class='bck b_royalblue_dark pointer text center color c_white padding_small anchor mobile')
+            span.text.center
+                i.icon-backward
+                |  Back
+        section(class='padding_big scroll')
+            article(data-postid='', data-label='postit', class='hide_display bck b_white padding_medium')
+                h4(data-label='postTitle', class='margin_bottom_medium', contenteditable='true')
+                div(class='margin_bottom_small')
+                    div.text.bold Slug
+                    div(data-label='postSlug', contenteditable='true')
+                div(class='margin_bottom_small')
+                    div.text.bold Category
+                    div(data-label='postCategory', contenteditable='true')
+                div(class='margin_bottom_medium')
+                    div.text.bold Tags
+                    div(data-label='postTags', contenteditable='true')
+                textarea(data-label='postContent', class='border solid all_small anchor margin_bottom_medium') Textarea
+                div.margin_top_medium
+                    button(data-role='updatePost', class='btn bck b_green text color c_white padding_small margin_right_small')
+                        i.icon-save
+                        |  Update
+                    button(data-role='removePost', class='btn bck b_red text color c_white padding_small')
+                        i.icon-remove-sign
+                        |  Remove
+            div(data-label='postForm', class='hide_display bck b_white padding_medium')
+                form(action= config.url.admin.posts, method='post')
+                    input(id='title', name='title', placeholder='Your title', class='anchor margin_bottom_small', required)
+                    input(id='titleId', name='titleId', placeholder='Slug automatic generation', class='anchor margin_bottom_small', block,required)
+                    input(id='category', name='category', placeholder='Category', class='anchor margin_bottom_small', required)
+                    input(id='tags', name='tags', placeholder='Post tags (separate by coma)', class='anchor margin_bottom_small', required)
+                    input(id='description', name='description', placeholder='Post description (important for SEO)', class='anchor margin_bottom_small', required)
+                    textarea(id='content', name='content', placeholder='Content...', class='anchor margin_bottom_small', required)
+                    input(id='send', type='submit', value='Send...', class='btn normal bck b_jet text color c_white anchor')
+    include footer

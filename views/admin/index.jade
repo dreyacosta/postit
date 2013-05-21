@@ -2,8 +2,8 @@ extends header
 
 block content
     if session.username
-        section
-            section.padding_big.row
-                div.col4
-                    include sidebar
-                div.col8
+        section.f12.flex.column
+            include navigation
+            div.flex.f1.y_center
+                h1.text.center Welcome to post
+                    span.text.bold it
