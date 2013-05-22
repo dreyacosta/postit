@@ -43,7 +43,10 @@ function main() {
             postTitle.html(data.title);
             postSlug.html(data.titleId);
             postCategory.html(data.category);
-            postTags.html(data.tags);
+
+            var tags = data.tags.join();
+
+            postTags.html(tags);
             postContent.val(data.content).trigger('autosize');
         });
     });
@@ -87,7 +90,7 @@ function main() {
             postit.addClass('hide_display');
             logs.html('<div class="bck b_red_light text center bold color c_red">Post deleted</div>');
             setTimeout(function() {
-                logs.html('<div class="text center bold">postit</div>');
+                logs.html('<div class="text center bold"><a href="' + urls.blogHome + '">postit</a></div>');
             }, 2000);
         });
     });
@@ -114,6 +117,24 @@ function main() {
         };
 
         socket.emit('postEdition', toSend);
+    });
+
+    $('input#title').on('keyup', function () {
+        var title = $('#title').val();
+        title = title.replace(/[^\w\s]/g, '');
+        title = title.replace(/\s/gi, "-");
+        title = title.toLowerCase();
+
+        $('#titleId').val(title);
+    });
+
+    $('h4#title').on('keyup', function () {
+        var title = $('#title').html();
+        title = title.replace(/[^\w\s]/g, '');
+        title = title.replace(/\s/gi, "-");
+        title = title.toLowerCase();
+
+        $('#titleId').html(title);
     });
 
 
@@ -189,7 +210,7 @@ function main() {
         if (username.val() == 'postit') {
             logs.html('<div class="bck b_red_light text center bold color c_red">This is a demo</div>');
             setTimeout(function() {
-                logs.html('&nbsp');
+                logs.html('<div class="text center bold"><a href="' + urls.blogHome + '">postit</a></div>');
             }, 2000);
         } else {
             $.ajax({
@@ -201,7 +222,7 @@ function main() {
                 $('#' + id).remove();
                 logs.html('<div class="bck b_red_light text center bold color c_red">User deleted</div>');
                 setTimeout(function() {
-                    logs.html('&nbsp');
+                    logs.html('<div class="text center bold"><a href="' + urls.blogHome + '">postit</a></div>');
                 }, 2000);
             });
         }
@@ -237,7 +258,7 @@ function main() {
     socket.on('message', function (data) {
         logs.html(data);
         setTimeout(function() {
-            logs.html('<div class="text center bold">postit</div>');
+            logs.html('<div class="text center bold"><a href="' + urls.blogHome + '">postit</a></div>');
         }, 2000);
     });
 
