@@ -12,6 +12,7 @@ var config = {
         dbName: 'blogio'
     },
     url: {
+        getUrlConfig: '/config',
         blogHome: '/demo',
         admin: {
             index: '/admin',
@@ -33,7 +34,7 @@ var config = {
             user: '/edit/user'
         },
         blog: {
-            post: '',
+            post: '/post',
             page: '',
             category: '/category',
             tag: '/tag'
