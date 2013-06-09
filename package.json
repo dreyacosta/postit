@@ -1,20 +1,22 @@
 {
     "name": "postit",
-    "version": "0.0.1",
+    "version": "0.2.0",
     "private": true,
     "scripts": {
         "start": "node postit"
     },
     "dependencies": {
-        "jade": "0.28.1",
-        "stylus": "0.32.0",
-        "pwd": "0.0.2",
-        "mongoose": "3.5.5",
-        "express.io": "1.1.8",
-        "grunt-contrib-uglify": "*",
-        "grunt-contrib-copy": "*",
+        "jade"      : "0.28.1",
+        "stylus"    : "0.32.0",
+        "pwd"       : "0.0.2",
+        "mongoose"  : "3.5.5",
+        "express.io": "1.1.8"
+    },
+    "devDependencies": {
+        "grunt-contrib-uglify"  : "*",
+        "grunt-contrib-copy"    : "*",
         "grunt-contrib-imagemin": "*",
-        "grunt-contrib-watch": "*",
-        "grunt-contrib-jshint": "*"
+        "grunt-contrib-watch"   : "*",
+        "grunt-contrib-jshint"  : "*"
     }
 }
