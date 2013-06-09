@@ -4,10 +4,10 @@ block content
     section.site_width.padding_big
         h1.text.center.margin_bottom_big Register user
 
-        if session.msg == 'El usuario ya existe'
+        if session.msg == 'User exist'
             div.bck.b_red_light.text.center.padding_small.margin_bottom_small #{session.msg}
 
-        if session.msg == 'Registro completado con éxito'
+        if session.msg == 'Register complete'
             div.bck.b_green_light.text.center.padding_small.margin_bottom_small #{session.msg}
 
         section
@@ -20,5 +20,5 @@ block content
                     option(value="user") user
                 input(type='password', id='pass', name='pass', placeholder='Password', class='anchor margin_bottom_small', required)
                 input(type='password', id='confirmPass', name='confirmPass', placeholder='Repeat password', class='anchor margin_bottom_small', required)
-                input(type='submit', id="send", value='Enviar', class='btn medium bck b_jet text color c_white anchor margin_bottom_small')
+                input(type='submit', id="send", value='Register', class='btn medium bck b_jet text color c_white anchor margin_bottom_small')
     include footer

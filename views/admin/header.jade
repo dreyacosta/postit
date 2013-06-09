@@ -20,9 +20,9 @@ html(class='isList')
                     div.bck.b_green_light.text.center.padding_small.margin_bottom_small
                         | #{session.msg}
                 form(action= config.url.admin.index, method='post')
-                    input(id='user', name='user', placeholder='Usuario', class='anchor margin_bottom_small', required)
+                    input(id='user', name='user', placeholder='User', class='anchor margin_bottom_small', required)
                     input(type='password', name='pass', placeholder='Password', class='anchor margin_bottom_small', required)
-                    input(type='submit', value='Enviar', class='btn normal bck b_jet text color c_white anchor margin_bottom_small')
+                    input(type='submit', value='Log in...', class='btn normal bck b_jet text color c_white anchor margin_bottom_small')
                 div
                     div.margin_bottom_small.text.center
                         strong.text.underline Demo user
