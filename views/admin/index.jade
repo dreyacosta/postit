@@ -1,9 +1,9 @@
 extends header
 
 block content
-    if session.username
-        section.f12.flex.column
-            include navigation
-            div.flex.f1.y_center
-                h1.text.center Welcome to post
-                    span.text.bold it
+    section(id='sidebar', class='f4 flex column bck b_white')
+        header(id='notifications', class='border solid bottom_medium text center padding_small') 
+            strong Notifications
+    section(id='container', class='f12 column scroll') 
+        div(class='flex f1 y_center x_center')
+            h2 Welcome to postit!

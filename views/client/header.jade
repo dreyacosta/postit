@@ -1,0 +1,23 @@
+doctype 5
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/font/font-awesome.min.css')
+        link(rel='stylesheet', href='/stylesheets/xpressio.css')
+
+        script(src='/javascripts/vendors/jquery.js')
+        script(src='/javascripts/vendors/underscore.js')
+        script(src='/javascripts/vendors/backbone.js')
+        script(src='/javascripts/vendors/socket.io.js')
+
+        script(src='/javascripts/init.js')
+        
+        script(src='/javascripts/backbone/models/post.js')
+        script(src='/javascripts/backbone/views/client/model.js')
+        script(src='/javascripts/backbone/views/client/sidebar.js')
+
+        script(src='/javascripts/backbone/routers/client/base.js')
+        
+        script(src='/javascripts/client.js')
+    body
+        block content

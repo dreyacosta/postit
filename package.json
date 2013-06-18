@@ -1,22 +1,25 @@
 {
-    "name": "postit",
-    "version": "0.2.0",
+    "name": "application-name",
+    "version": "0.5.0",
     "private": true,
     "scripts": {
-        "start": "node postit"
+        "start": "node app.js"
     },
     "dependencies": {
-        "jade"      : "0.28.1",
-        "stylus"    : "0.32.0",
-        "pwd"       : "0.0.2",
-        "mongoose"  : "3.5.5",
-        "express.io": "1.1.8"
+        "express"          : "3.2.6",
+        "jade"             : "*",
+        "stylus"           : "*",
+        "mongoose"         : "*",
+        "rethinkdb"        : "*",
+        "socket.io"        : "*",
+        "passport"         : "*",
+        "passport-twitter" : "*"
     },
     "devDependencies": {
-        "grunt-contrib-uglify"  : "*",
-        "grunt-contrib-copy"    : "*",
-        "grunt-contrib-imagemin": "*",
-        "grunt-contrib-watch"   : "*",
-        "grunt-contrib-jshint"  : "*"
+        "grunt-contrib-jshint"   : "*",
+        "grunt-contrib-uglify"   : "*",
+        "grunt-contrib-imagemin" : "*",
+        "grunt-contrib-copy"     : "*",
+        "grunt-contrib-watch"    : "*"
     }
 }

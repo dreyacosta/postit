@@ -1,0 +1,9 @@
+<article class="border solid bottom_small padding_bottom_big margin_bottom_big">
+    <h2 data-label="title" class="text bold"><%= model.title %></h2>
+    <div class="margin_bottom_medium">
+        <small>
+            <i class="icon-calendar"></i> <%= model.postDate %> by <span class="text bold"><%= model.author %></span> @ <span data-label="category" class="text bold"><%= model.category %></span> // <span data-label="tags"><%= model.tags %></span></small>
+    </div>
+
+    <div data-label="content"><%= extract %></div>
+</article>

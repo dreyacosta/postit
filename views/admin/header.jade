@@ -2,36 +2,37 @@ doctype 5
 html(class='isList')
     head
         meta(charset='utf-8')
+
         meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
         meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no')
-        meta(name='description', content= description)
+
         title= title
-        link(rel='stylesheet', href='/font/font-awesome.min.css')
         link(rel='stylesheet', href='/stylesheets/xpressio.css')
-    body.bck.b_jet_light.flex
-        if session.username
+
+        script(src='/javascripts/vendors/jquery.js')
+        script(src='/javascripts/vendors/underscore.js')
+        script(src='/javascripts/vendors/backbone.js')
+        script(src='/javascripts/vendors/socket.io.js')
+        script(src='/javascripts/vendors/jquery.autosize.js')
+
+        script(src='/javascripts/init.js')
+        
+        script(src='/javascripts/backbone/models/post.js')
+        script(src='/javascripts/backbone/models/user.js')
+
+        script(src='/javascripts/backbone/views/admin/add.js')
+        script(src='/javascripts/backbone/views/admin/edition.js')
+        script(src='/javascripts/backbone/views/admin/list.js')
+        script(src='/javascripts/backbone/views/admin/menu.js')
+        script(src='/javascripts/backbone/views/admin/model.js')
+        script(src='/javascripts/backbone/views/admin/new.js')
+        
+        script(src='/javascripts/backbone/routers/admin/base.js')
+        
+        script(src='/javascripts/admin.js')
+    body(class='flex bck b_jet_light')
+        if session
             block content
         else
-            section.site_width.f12.padding_big
-                if session.msg == 'Incorrect username or password'
-                    div.bck.b_red_light.text.center.padding_small.margin_bottom_small
-                        | #{session.msg}
-                if session.msg == 'Complete registration'
-                    div.bck.b_green_light.text.center.padding_small.margin_bottom_small
-                        | #{session.msg}
-                form(action= config.url.admin.index, method='post')
-                    input(id='user', name='user', placeholder='User', class='anchor margin_bottom_small', required)
-                    input(type='password', name='pass', placeholder='Password', class='anchor margin_bottom_small', required)
-                    input(type='submit', value='Log in...', class='btn normal bck b_jet text color c_white anchor margin_bottom_small')
-                div
-                    div.margin_bottom_small.text.center
-                        strong.text.underline Demo user
-                        div 
-                            strong User: 
-                            span postit
-                        div
-                            strong Pass: 
-                            span demo
-                        div.margin_top_medium
-                            h3 Made with Flexbox.
-                            h3 Please use Chrome for a better experience.
+            div(class='f1 flex y_center')
+                a(href='/auth/twitter', class="text center bold padding_big") Sign with Twitter

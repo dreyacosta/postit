@@ -1,17 +1,17 @@
-var express = require('express.io'),
-    mongoose = require('mongoose'),
-    routes = require('./routes'),
-    http = require('http'),
-    path = require('path'),
-    pass = require('pwd'),
-    app = express().http().io();
+var express         = require('express'),
+    passport        = require('passport'),
+    TwitterStrategy = require('passport-twitter').Strategy,
+    db              = require('./routes/mongodb/schemas'),
+    path            = require('path');
 
-// Blog config
+var app             = express();
+    server          = require('http').createServer(app),
+    io              = require('socket.io').listen(server);
 
-var config = require('./routes/admin/config');
+var query           = require('./routes/functions')(app, db);
 
 app.configure(function() {
-    app.set('port', process.env.PORT || config.domain.port);
+    app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
     app.use(express.favicon());
@@ -20,99 +20,24 @@ app.configure(function() {
     app.use(express.methodOverride());
     app.use(express.cookieParser());
     app.use(express.session({secret: 'monkey'}));
+    app.use(passport.initialize());
+    app.use(passport.session());
     app.use(app.router);
     app.use(require('stylus').middleware(__dirname + '/public'));
     app.use(express.static(path.join(__dirname, 'public')));
-    app.use(function(req,res){
-        res.render('404', {
-            title: '404 Page not found',
-            description: '404 Page not found'
-        });
-    });
 });
 
-app.configure('development', function() {
+// development only
+if ('development' == app.get('env')) {
     app.use(express.errorHandler());
-});
+}
 
-mongoose.connect('mongodb://' + config.mongodb.credentials + config.mongodb.host + config.mongodb.port + '/' + config.mongodb.dbName, function(err) {
-    if (err) throw err;
-});
+require('./routes/api/articles')(app, db, query);
+require('./routes/api/users')(app, db, query);
+require('./routes/views/client')(app);
+require('./routes/views/admin')(app, passport);
+require('./routes/auth')(app, db, passport, TwitterStrategy);
 
-var userSchema = mongoose.Schema({
-    username: String,
-    fullName: String,
-    role: {
-        type: String,
-        default: 'user'
-    },
-    email: String,
-    registerDate: {
-        type: Date,
-        default: Date.now
-    },
-    accountState: {
-        type: String,
-        default: 'waiting'
-    },
-    pass: String,
-    salt: String
-});
-var user = mongoose.model('user', userSchema);
-
-var postSchema = mongoose.Schema({
-    title: String,
-    titleId: String,
-    category: {
-        type: String,
-        default: 'No category'
-    },
-    content: String,
-    postDate: {
-        type: Date,
-        default: Date.now
-    },
-    postDescription: String,
-    tags: Array,
-    comments: String,
-    username: String
-});
-var post = mongoose.model('post', postSchema);
-
-
-// Get JSON with config URLs
-
-app.get(config.url.getUrlConfig, function (req, res) {
-    if (req.session.username) {
-        res.send(config.url);
-    } else {
-        res.send(404, 'Something broke!');
-    }
-});
-
-// Global functions
-
-var functions = require('./routes/functions')(app, post, user, pass);
-
-// Routes socket.io
-
-require('./routes/socketio')(app, config, post, user, pass, functions);
-require('./routes/register')(app, config, post, user, pass, functions);
-
-// Routes admin panel
-
-require('./routes/admin/index')(app, config, post, user, pass, functions);
-require('./routes/admin/posts')(app, config, post, user, pass, functions);
-require('./routes/admin/users')(app, config, post, user, pass, functions);
-require('./routes/admin/categories')(app, config, post, user, pass, functions);
-
-// Routes blog
-
-require('./routes/index')(app, config, post, user, pass, functions);
-require('./routes/post')(app, config, post, user, pass, functions);
-require('./routes/archive')(app, config, post, user, pass, functions);
-
-
-app.listen(app.get('port'), function() {
-    console.log("Express server listening on port " + app.get('port'));
+server.listen(app.get('port'), function(){
+    console.log('Express server listening on port ' + app.get('port'));
 });

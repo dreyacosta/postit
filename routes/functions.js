@@ -1,8 +1,7 @@
-module.exports = function(app, post, user, pass) {
-
+module.exports = function(app, db) {
     return {
         getUsers: function (callback) {
-            user.find(function (err, users) {
+            db.User.find(function (err, users) {
                 if (users.length > 0) {
                     callback(users);
                 } else {
@@ -10,8 +9,9 @@ module.exports = function(app, post, user, pass) {
                 }
             });
         },
+
         getUserById: function (id, callback) {
-            user.findOne({_id: id}, function (err, user) {
+            db.User.findOne({_id: id}, function (err, user) {
                 if (user) {
                     callback(user);
                 } else {
@@ -19,8 +19,9 @@ module.exports = function(app, post, user, pass) {
                 }
             });
         },
+
         getUserByUsername: function (username, callback) {
-            user.findOne({username: username}, function (err, user) {
+            db.User.findOne({username: username}, function (err, user) {
                 if (user) {
                     callback(user);
                 } else {
@@ -28,8 +29,9 @@ module.exports = function(app, post, user, pass) {
                 }
             });
         },
+
         getPostById: function (id, callback) {
-            post.findOne({_id: id}, function (err, post) {
+            db.Article.findOne({_id: id}, function (err, post) {
                 if (post) {
                     callback(post);
                 } else {
@@ -37,8 +39,9 @@ module.exports = function(app, post, user, pass) {
                 }
             });
         },
+
         getPostByTitleId: function (titleId, callback) {
-            post.findOne({titleId: titleId}, function (err, post) {
+            db.Article.findOne({titleId: titleId}, function (err, post) {
                 if (post) {
                     callback(post);
                 } else {
@@ -47,20 +50,21 @@ module.exports = function(app, post, user, pass) {
                 }
             });
         },
+
         getPostByDate: function (callback) {
             var convertPosts = [];
-            post.find().sort('-postDate').find(function (err, posts) {
+            db.Article.find().sort('-postDate').find(function (err, posts) {
                 posts.forEach(function (thisPost) {
                     var date = new Date(thisPost.postDate);
                     date = date.toDateString();
                     var temp = {
                         _id: thisPost._id,
                         title: thisPost.title,
-                        titleId: thisPost.titleId,
+                        slug: thisPost.slug,
                         tags: thisPost.tags,
                         content: thisPost.content,
                         category: thisPost.category,
-                        username: thisPost.username,
+                        author: thisPost.author,
                         postDate: date
                     };
                     convertPosts.push(temp);
@@ -68,8 +72,9 @@ module.exports = function(app, post, user, pass) {
                 callback(convertPosts);
             });
         },
+
         getPostByCategory: function (category, callback) {
-            post.find({category: category}).sort('-postDate').exec(function (err, posts) {
+            db.Article.find({category: category}).sort('-postDate').exec(function (err, posts) {
                 if (posts) {
                     callback(posts);
                 } else {
@@ -77,13 +82,15 @@ module.exports = function(app, post, user, pass) {
                 }
             });
         },
+
         getCategories: function (callback) {
-            post.find().distinct('category', function (err, categories) {
+            db.Article.find().distinct('category', function (err, categories) {
                 callback(categories);
             });
         },
+
         getPostByTag: function (regex, callback) {
-            post.find().sort('-postDate').where('tags').regex(regex).exec(function (err, posts) {
+            db.Article.find().sort('-postDate').where('tags').regex(regex).exec(function (err, posts) {
                 if (posts) {
                     callback(posts);
                 } else {
@@ -92,5 +99,4 @@ module.exports = function(app, post, user, pass) {
             });
         }
     };
-
 };

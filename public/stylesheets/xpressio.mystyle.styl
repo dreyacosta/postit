@@ -19,10 +19,14 @@
     height 100%
     vertical-align middle
 
-[data-label="postSelect"]:hover, [data-label="userSelect"]:hover
-    background jet_light
-    &>h5
-        color black !important
+.pointer:hover
+    box-shadow inset 0px 0px 30px rgba(0,0,0,0.1)
+
+[contenteditable]:hover
+    background rgb(250, 250, 250)
+
+article
+    color rgb(68, 68, 68)
 
 ::-webkit-scrollbar{width:8px;height:8px;position:absolute}
 ::-webkit-scrollbar-button:vertical{background-color:#f00}

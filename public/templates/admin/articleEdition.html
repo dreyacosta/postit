@@ -1,0 +1,14 @@
+<div class="bck b_white margin_big padding_big">
+    <div class="text uppercase margin_bottom_medium"><%= model.postDate %></div>
+    <div class="margin_bottom_medium">
+        Write by <span class="text bold"><%= model.author %></span> @ <span data-label="category" class="text bold" contenteditable="true"><%= model.category %></span> // <span data-label="tags" contenteditable="true"><%= model.tags %></span>
+    </div>
+    <h2 data-label="title" class="text bold" contenteditable="plaintext-only"><%= model.title %></h2>
+    <div data-label="slug" class="text color c_jet_light margin_bottom_big" contenteditable="plaintext-only"><%= model.slug %></div>
+
+    <div data-label="content" class="border margin_bottom_big" contenteditable="plaintext-only"><%= model.content %></div>
+
+    <!-- <textarea id="content" name="content" class="bck b_white anchor border none" placeholder="Content..."><%= model.content %></textarea>  -->
+
+    <button class="btn padding_small bck b_green text color c_white">Update</button>
+</div>
