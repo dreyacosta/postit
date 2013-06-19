@@ -1,16 +1,15 @@
 {
-    "name": "application-name",
+    "name": "postit",
     "version": "0.5.0",
     "private": true,
     "scripts": {
-        "start": "node app.js"
+        "start": "node postit.js"
     },
     "dependencies": {
         "express"          : "3.2.6",
         "jade"             : "*",
         "stylus"           : "*",
         "mongoose"         : "*",
-        "rethinkdb"        : "*",
         "socket.io"        : "*",
         "passport"         : "*",
         "passport-twitter" : "*"
