@@ -2,7 +2,7 @@ module.exports = function(app, db, passport, TwitterStrategy) {
     passport.use(new TwitterStrategy({
             consumerKey: 'wV2KPmz9q0TrgpBBQMmw',
             consumerSecret: 'd8fbireax06EDCuM0VTd9QTKUb3jHwlUUpzkMHLzPQc',
-            callbackURL: "http://localhost:3000/auth/twitter/callback"
+            callbackURL: "/auth/twitter/callback"
         },
       
         function(token, tokenSecret, profile, done) {
@@ -46,6 +46,6 @@ module.exports = function(app, db, passport, TwitterStrategy) {
     });
 
     app.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/login' }), function(req, res) {
-        res.redirect('/');
+        res.redirect('back');
     });
 }
