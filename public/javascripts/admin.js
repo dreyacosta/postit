@@ -1,5 +1,33 @@
 $(function() {
 
+    $.get("/templates/admin/userEdition.html", function(html) {
+        app.templates.userEdition = _.template(html);
+    });
+
+    $.get("/templates/admin/article.html", function(html) {
+        app.templates.article = _.template(html);
+    });
+
+    $.get("/templates/admin/articleNew.html", function(html) {
+        app.templates.articleNew = _.template(html);
+    });
+
+    $.get("/templates/admin/menu.html", function(html) {
+        app.templates.menu = _.template(html);
+    });
+
+    $.get("/templates/admin/menu.html", function(html) {
+        app.templates.menu = _.template(html);
+    });
+
+    $.get("/templates/admin/user.html", function(html) {
+        app.templates.user = _.template(html);
+    });
+
+    $.get("/templates/admin/articleEdition.html", function(html) {
+        app.templates.articleEdition = _.template(html);
+    });
+
     Postit.articles = new Postit.Collections.Articles;
     Postit.users = new Postit.Collections.Users;
 
@@ -12,7 +40,7 @@ $(function() {
         var xhrArticles = $.get('/articles');
 
         xhrArticles.done(function(data){
-            console.log(data);
+            console.log('Articles loaded', data);
 
             data.forEach(function(article){
                 Postit.articles.add(article);
@@ -21,7 +49,7 @@ $(function() {
             var xhrUsers = $.get('/users');
 
             xhrUsers.done(function(data){
-                console.log(data);
+                console.log('Users loaded', data);
 
                 data.forEach(function(user){
                     Postit.users.add(user);
@@ -30,7 +58,7 @@ $(function() {
                 callback();
             });
 
-            xhrUsers.fail(function() {
+            xhrUsers.fail(function(data) {
                 console.log('Users 401');
             });
         });
