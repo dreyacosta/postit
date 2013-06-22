@@ -32,10 +32,10 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 
+require('./routes/views/admin')(app, passport);
+require('./routes/views/client')(app);
 require('./routes/api/articles')(app, db, query);
 require('./routes/api/users')(app, db, query);
-require('./routes/views/client')(app);
-require('./routes/views/admin')(app, passport);
 require('./routes/auth')(app, db, passport, TwitterStrategy);
 
 server.listen(app.get('port'), function(){
