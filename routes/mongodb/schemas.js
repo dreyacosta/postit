@@ -41,6 +41,7 @@ var articleSchema = mongoose.Schema({
     },
     postDescription: String,
     tags: Array,
+    state: String,
     comments: String,
     author: String
 });
