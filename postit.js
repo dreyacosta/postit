@@ -33,10 +33,10 @@ if ('development' == app.get('env')) {
 }
 
 require('./routes/views/admin')(app, passport);
-require('./routes/views/client')(app);
 require('./routes/api/articles')(app, db, query);
 require('./routes/api/users')(app, db, query);
 require('./routes/auth')(app, db, passport, TwitterStrategy);
+require('./routes/views/client')(app);
 
 server.listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
