@@ -8,7 +8,8 @@ var app             = express();
     server          = require('http').createServer(app),
     io              = require('socket.io').listen(server);
 
-var query           = require('./routes/functions')(app, db);
+var query           = require('./routes/functions')(app, db),
+    config          = require('./routes/config');
 
 app.configure(function() {
     app.set('port', process.env.PORT || 3000);
@@ -31,6 +32,10 @@ app.configure(function() {
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
+
+app.get('/postit/config', function(req, res) {
+    res.send(config.url);
+});
 
 require('./routes/views/admin')(app, passport);
 require('./routes/api/articles')(app, db, query);
