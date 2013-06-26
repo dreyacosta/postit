@@ -4,8 +4,22 @@ window.Postit = {
     Routers: {},
     Views: {},
     init: function(){
-        
-    }   
+
+    }
 };
 
-var app = {}
+var app = {
+    templates: {},
+    url: {
+        api: {
+            articles: '/articles',
+            users: '/users'
+        },
+        blog: {
+            post: '/post',
+            page: '',
+            category: '/category',
+            tag: '/tag'
+        }
+    }
+};
