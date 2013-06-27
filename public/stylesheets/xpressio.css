@@ -1080,7 +1080,7 @@ img.top {
   margin: 7px;
 }
 .margin_medium {
-  margin: 20px;
+  margin: 10px;
 }
 .margin_big {
   margin: 40px;
@@ -1089,7 +1089,7 @@ img.top {
   margin-top: 7px;
 }
 .margin_top_medium {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .margin_top_big {
   margin-top: 40px;
@@ -1098,7 +1098,7 @@ img.top {
   margin-right: 7px;
 }
 .margin_right_medium {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 .margin_right_big {
   margin-right: 40px;
@@ -1107,7 +1107,7 @@ img.top {
   margin-bottom: 7px;
 }
 .margin_bottom_medium {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .margin_bottom_big {
   margin-bottom: 40px;
@@ -1116,52 +1116,52 @@ img.top {
   margin-left: 7px;
 }
 .margin_left_medium {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 .margin_left_big {
   margin-left: 40px;
 }
 .padding_small {
-  padding: 10px;
+  padding: 4px;
 }
 .padding_medium {
-  padding: 20px;
+  padding: 10px;
 }
 .padding_big {
   padding: 30px;
 }
 .padding_top_small {
-  padding-top: 10px;
+  padding-top: 4px;
 }
 .padding_top_medium {
-  padding-top: 20px;
+  padding-top: 10px;
 }
 .padding_top_big {
   padding-top: 30px;
 }
 .padding_right_small {
-  padding-right: 10px;
+  padding-right: 4px;
 }
 .padding_right_medium {
-  padding-right: 20px;
+  padding-right: 10px;
 }
 .padding_right_big {
   padding-right: 30px;
 }
 .padding_bottom_small {
-  padding-bottom: 10px;
+  padding-bottom: 4px;
 }
 .padding_bottom_medium {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .padding_bottom_big {
   padding-bottom: 30px;
 }
 .padding_left_small {
-  padding-left: 10px;
+  padding-left: 4px;
 }
 .padding_left_medium {
-  padding-left: 20px;
+  padding-left: 10px;
 }
 .padding_left_big {
   padding-left: 30px;
@@ -1604,6 +1604,9 @@ img.top {
 article {
   color: #444;
 }
+#notifications {
+  line-height: 20px;
+}
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -1731,8 +1734,8 @@ article {
   #content .padding_big {
     padding: 0;
   }
-  .isList #content,
-  .isContent #list {
+  .isList #container,
+  .isContent #sidebar {
     position: absolute;
     top: 0;
     z-index: -1;
@@ -1740,5 +1743,8 @@ article {
     height: 100%;
     width: 100%;
     width: 0;
+  }
+  .padding_big {
+    padding: 0;
   }
 }
