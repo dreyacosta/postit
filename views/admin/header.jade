@@ -9,27 +9,26 @@ html(class='isList')
         title= title
         link(rel='stylesheet', href='/stylesheets/xpressio.css')
 
-        script(src='/javascripts/vendors/jquery.js')
-        script(src='/javascripts/vendors/underscore.js')
-        script(src='/javascripts/vendors/backbone.js')
-        script(src='/javascripts/vendors/socket.io.js')
-        script(src='/javascripts/vendors/jquery.autosize.js')
+        if session
+            script(src='/javascripts/vendors/jquery.js')
+            script(src='/javascripts/vendors/underscore.js')
+            script(src='/javascripts/vendors/backbone.js')
+            script(src='/javascripts/vendors/backbone.marionette.js')
+            script(src='/javascripts/vendors/socket.io.js')
+            script(src='/javascripts/vendors/jquery.autosize.js')
 
-        script(src='/javascripts/init.js')
-        
-        script(src='/javascripts/backbone/models/post.js')
-        script(src='/javascripts/backbone/models/user.js')
+            script(src='/javascripts/init.js')
 
-        script(src='/javascripts/backbone/views/admin/add.js')
-        script(src='/javascripts/backbone/views/admin/edition.js')
-        script(src='/javascripts/backbone/views/admin/list.js')
-        script(src='/javascripts/backbone/views/admin/menu.js')
-        script(src='/javascripts/backbone/views/admin/model.js')
-        script(src='/javascripts/backbone/views/admin/new.js')
-        
-        script(src='/javascripts/backbone/routers/admin/base.js')
-        
-        script(src='/javascripts/admin.js')
+            script(src='/javascripts/app/admin/models/article.js')
+            script(src='/javascripts/app/admin/models/user.js')
+
+            script(src='/javascripts/app/admin/routers/router.js')
+
+            script(src='/javascripts/app/admin/views/model.js')
+            script(src='/javascripts/app/admin/views/sidebar.js')
+            script(src='/javascripts/app/admin/views/edition.js')
+            
+            script(src='/javascripts/app/admin/admin.js')
     body(class='flex bck b_jet_light')
         if session
             block content
