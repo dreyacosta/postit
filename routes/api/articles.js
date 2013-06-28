@@ -5,6 +5,12 @@ module.exports = function(app, db, query) {
         });
     });
 
+    app.get('/articlespublished', function(req, res) {
+        query.getPostByDateP(function(posts) {
+            res.send(posts);
+        });
+    });
+
     app.post('/articles', function(req, res) {
         console.log('Articles posts');
         console.log(req.body);
@@ -40,17 +46,19 @@ module.exports = function(app, db, query) {
         var id = req.params.id;
 
         req.body.content = req.body.content.replace(/<script>.*<\/script>/gi, "");
-    
+
         query.getPostById(id, function (article) {
             article.title = req.body.title;
             article.slug = req.body.slug;
             article.category = req.body.category;
             article.tags = req.body.tags;
             article.content = req.body.content;
+            article.state = req.body.state;
+            article.views = req.body.views + 1;
 
             article.save();
 
-            io.sockets.emit('articles::update', req.body);
+            io.sockets.emit('articles::update', article);
             io.sockets.emit('notifications', '<div class="bck b_green_light text color c_green padding_small"><div>' + article.title + '</div> <strong>updated</strong></div>');
 
             res.send(200, {status:"Ok"});
@@ -63,7 +71,7 @@ module.exports = function(app, db, query) {
         console.log(req.params.id);
 
         var id = req.params.id;
-    
+
         query.getPostById(id, function (article) {
             io.sockets.emit('notifications', '<div class="bck b_red_light text color c_red padding_small"><div>' + article.title + '</div> <strong>removed</strong></div>');
 
@@ -74,4 +82,4 @@ module.exports = function(app, db, query) {
             res.send(200, {status:"Ok"});
         });
     });
-}
+};
