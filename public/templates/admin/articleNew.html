@@ -1,11 +1,32 @@
-<div class="bck b_white margin_big padding_big">
-    <div class="margin_bottom_medium">
-        <span data-label="category" class="text bold border solid bottom_small" contenteditable="true">Category</span> // <span data-label="tags" class="border solid bottom_small" contenteditable="true">Tags</span>
-    </div>
-    <h2 data-label="title" class="text bold border solid bottom_small" contenteditable="plaintext-only">Title...</h2>
-    <div data-label="slug" class="text color c_jet_medium margin_bottom_big" contenteditable="plaintext-only">slug</div>
+<div id="back" class="bck b_royalblue_dark text bold center color c_white padding_small margin_bottom_medium pointer mobile"><< Back</div>
 
-    <div data-label="content" class="border margin_bottom_big" contenteditable="plaintext-only">Your article here!</div>
+<input data-label="title" class="text bold anchor" placeholder="Title"></input>
+<div data-label="slug" class="text color c_jet_medium margin_bottom_medium padding_small">automatic-slug-generation</div>
 
-    <button class="btn padding_small bck b_green text color c_white">Update</button>
+<div class="margin_bottom_big">
+    <input data-label="category" class="margin_bottom_small anchor" placeholder="Category"></input>
+    <input data-label="tags" class="anchor" placeholder="Tags (separate by coma)"></input>
 </div>
+
+<div data-html5editor-tagName="h3" class="inline bck b_jet_light border solid all_small pointer margin_bottom_small padding_small">H3</div>
+<div data-html5editor-tagName="h4" class="inline bck b_jet_light border solid all_small pointer margin_bottom_small padding_small">H4</div>
+<div data-html5editor-tagName="h5" class="inline bck b_jet_light border solid all_small pointer margin_bottom_small padding_small">H5</div>
+<div data-html5editor-tagName="strong" class="inline bck b_jet_light border solid all_small pointer margin_bottom_small padding_small">Bold</div>
+<div data-html5editor-tagName="italic" class="inline bck b_jet_light border solid all_small pointer margin_bottom_small padding_small">Italic</div>
+<div data-html5editor-tagName="span" data-html5editor-className="text color c_red" class="inline bck b_red text color c_white border solid all_small pointer margin_bottom_small padding_small">Red</div>
+<div data-html5editor-tagName="span" data-html5editor-className="text color c_blue" class="inline bck b_blue text color c_white border solid all_small pointer margin_bottom_small padding_small">Blue</div>
+<div data-html5editor-tagName="span" data-html5editor-className="text color c_yellow" class="inline bck b_yellow text color c_white border solid all_small pointer margin_bottom_small padding_small">Yellow</div>
+<textarea data-label="content" data-html5editor-role="editor" class="anchor" placeholder="Your article"></textarea>
+
+<div class="padding_small">
+    <h5 class="text bold margin_bottom_small">Preview:</h5>
+    <div data-html5editor-role="preview" class="margin_bottom_big"></div>
+</div>
+
+<button class="btn padding_small bck b_green text color c_white">Publish</button>
+<button class="btn padding_small bck b_orange text color c_white">Save draft</button>
+
+<script src="/javascripts/vendors/html5editor.js"></script>
+<script>
+    $('textarea').autosize();
+</script>

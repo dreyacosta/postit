@@ -1,4 +1,5 @@
-<div class="padding_medium border solid bottom_small pointer">
-    <h5 class="text bold color c_jet"><%= model.title %></h5>
-    <div class="text color c_jet_medium"><%= model.articleDate %> by <%= model.author %> @ <%= model.category %></div>
-</div>
+<h5 class="text bold color c_jet"><%= title %></h5>
+<div class="text color c_jet_medium"><abbr class="timeago" title="<%= postDate %>"><%= postDate %></abbr> by <%= author.username %> @ <%= category %></div>
+<% if (state === "Draft") { %>
+<div class="margin_top_medium text color c_white"><span class="bck b_orange border rad_small padding_small"><small><%= state %></small></span></div>
+<% } %>

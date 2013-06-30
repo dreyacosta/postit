@@ -1,14 +1,39 @@
-<div class="bck b_white margin_big padding_big">
-    <div class="text uppercase margin_bottom_medium"><%= model.postDate %></div>
-    <div class="margin_bottom_medium">
-        Write by <span class="text bold"><%= model.author %></span> @ <span data-label="category" class="text bold" contenteditable="true"><%= model.category %></span> // <span data-label="tags" contenteditable="true"><%= model.tags %></span>
-    </div>
-    <h2 data-label="title" class="text bold" contenteditable="plaintext-only"><%= model.title %></h2>
-    <div data-label="slug" class="text color c_jet_light margin_bottom_big" contenteditable="plaintext-only"><%= model.slug %></div>
+<div id="back" class="bck b_royalblue_dark text bold center color c_white padding_small margin_bottom_medium pointer mobile"><< Back</div>
 
-    <div data-label="content" class="border margin_bottom_big" contenteditable="plaintext-only"><%= model.content %></div>
-
-    <!-- <textarea id="content" name="content" class="bck b_white anchor border none" placeholder="Content..."><%= model.content %></textarea>  -->
-
-    <button class="btn padding_small bck b_green text color c_white">Update</button>
+<div class="text uppercase margin_bottom_medium"><%= model.postDate %></div>
+<div class="margin_bottom_medium">
+    Write by <span class="text bold"><%= model.author.username %></span> @ <span data-label="category" class="text bold" contenteditable="plaintext-only"><%= model.category %></span> // <span data-label="tags" contenteditable="plaintext-only"><%= model.tags %></span>
 </div>
+<h2 data-label="title" class="text bold" contenteditable="plaintext-only"><%= model.title %></h2>
+<div data-label="slug" class="text color c_jet_light margin_bottom_big"><%= model.slug %></div>
+
+<div data-html5editor-tagName="h3" class="inline bck b_jet_light border solid all_small pointer margin_bottom_small padding_small">H3</div>
+<div data-html5editor-tagName="h4" class="inline bck b_jet_light border solid all_small pointer margin_bottom_small padding_small">H4</div>
+<div data-html5editor-tagName="h5" class="inline bck b_jet_light border solid all_small pointer margin_bottom_small padding_small">H5</div>
+<div data-html5editor-tagName="strong" class="inline bck b_jet_light border solid all_small pointer margin_bottom_small padding_small">Bold</div>
+<div data-html5editor-tagName="italic" class="inline bck b_jet_light border solid all_small pointer margin_bottom_small padding_small">Italic</div>
+<div data-html5editor-tagName="span" data-html5editor-className="text color c_red" class="inline bck b_red text color c_white border solid all_small pointer margin_bottom_small padding_small">Red</div>
+<div data-html5editor-tagName="span" data-html5editor-className="text color c_blue" class="inline bck b_blue text color c_white border solid all_small pointer margin_bottom_small padding_small">Blue</div>
+<div data-html5editor-tagName="span" data-html5editor-className="text color c_yellow" class="inline bck b_yellow text color c_white border solid all_small pointer margin_bottom_small padding_small">Yellow</div>
+<textarea data-label="content" data-html5editor-role="editor" class="margin_bottom_small anchor"><%= article %></textarea>
+
+<div class="padding_small">
+    <h5 class="text bold margin_bottom_small">Preview:</h5>
+    <div data-html5editor-role="preview" class="margin_bottom_big"><%= model.content %></div>
+</div>
+
+<button data-role="update" class="btn padding_small bck b_green text color c_white">Update</button>
+
+<button data-role="draft" class="btn padding_small bck b_orange text color c_white">
+<% if (model.state === "Draft") { %>
+Save to draft
+<% } %>
+
+<% if (model.state === "Publish") { %>
+Move to draft
+<% } %>
+</button>
+
+<button data-role="delete" class="btn padding_small bck b_red text color c_white">Delete</button>
+
+<script src="/javascripts/vendors/html5editor.js"></script>
