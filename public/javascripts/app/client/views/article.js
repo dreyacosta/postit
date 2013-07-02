@@ -2,7 +2,7 @@ Postit.Views.Article = Backbone.Marionette.ItemView.extend({
     tagName: "article",
 
     events: {
-        "click h2": "articleExtended"
+        "click a": "articleExtended"
     },
 
     modelEvents: {
