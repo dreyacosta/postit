@@ -1,15 +1,13 @@
 Postit.Collections.Articles = Backbone.Collection.extend({
-    url: "/articlespublished",
+    url: function() {
+        return this.url;
+    },
 
     model: Postit.Models.Article,
 
     name: "articles",
 
     initialize: function() {
-        var self = this;
-        if (this.size() === 0) {
-            this.fetch();
-            console.log('Articles fetch');
-        }
+        this.url = app.url.api.articles;
     }
 });
