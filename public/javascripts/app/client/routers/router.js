@@ -15,6 +15,9 @@ Postit.Routers.ClientRouter = Backbone.Router.extend({
 
         this.articlesView = new Postit.Views.Articles({collection: app.articles});
         MyApp.articles.show(this.articlesView);
+
+        this.sidebarView = new Postit.Views.Sidebar();
+        MyApp.sidebar.show(this.sidebarView);
     },
 
     articlePage: function(id) {
