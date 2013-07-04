@@ -6,7 +6,7 @@ module.exports = function(app, db, query) {
             });
         } else {
             res.send(401, {status:"Unauthorized"});
-        } 
+        }
     });
 
     app.post('/users', function(req, res) {
@@ -39,7 +39,7 @@ module.exports = function(app, db, query) {
         console.log(req.params.id);
 
         var id = req.params.id;
-    
+
         query.getUserById(id, function (user) {
             user.fullName = req.body.fullName;
             user.email = req.body.email;
@@ -52,4 +52,4 @@ module.exports = function(app, db, query) {
             res.send(200, {status:"Ok"});
         });
     });
-}
+};
