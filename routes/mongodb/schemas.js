@@ -42,11 +42,15 @@ var articleSchema = mongoose.Schema({
     postDescription: String,
     tags: Array,
     state: String,
+    views: {
+        type: Number,
+        default: 0
+    },
     comments: String,
-    author: String
+    author: Object
 });
 
 module.exports = {
     User: mongoose.model('user', userSchema),
     Article: mongoose.model('article', articleSchema)
-}
+};
