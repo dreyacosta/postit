@@ -23,7 +23,10 @@ module.exports = function(app, db, query) {
         req.body._id = newArticle._id;
 
         newArticle.title = req.body.title;
-        newArticle.author = req.user.username;
+        newArticle.author = {
+            username: req.user.username,
+            image: req.user.image
+        };
         newArticle.slug = req.body.slug;
         newArticle.category = req.body.category;
         newArticle.tags = req.body.tags;
@@ -54,7 +57,7 @@ module.exports = function(app, db, query) {
             article.tags = req.body.tags;
             article.content = req.body.content;
             article.state = req.body.state;
-            article.views = req.body.views + 1;
+            article.views = req.body.views;
 
             article.save();
 
