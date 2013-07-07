@@ -1,4 +1,4 @@
-module.exports = function(app, db, query) {
+module.exports = function(app, config, db, query) {
     app.get('/users', function(req, res) {
         if (req.user) {
             query.getUsers(function(users) {
@@ -48,6 +48,24 @@ module.exports = function(app, db, query) {
 
             io.sockets.emit('users::update', user);
             io.sockets.emit('notifications', '<div class="bck b_green_light text color c_green bold">user updated</div>');
+
+            res.send(200, {status:"Ok"});
+        });
+    });
+
+    app.delete('/users/:id', function(req, res) {
+        console.log('Users delete');
+        console.log(req.body);
+        console.log(req.params.id);
+
+        var id = req.params.id;
+
+        query.getUserById(id, function (user) {
+            io.sockets.emit('notifications', '<div class="bck b_red_light text color c_red padding_small"><div>' + user.username + '</div> <strong>removed</strong></div>');
+
+            user.remove();
+
+            io.sockets.emit('users::remove', id);
 
             res.send(200, {status:"Ok"});
         });

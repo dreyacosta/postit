@@ -1,4 +1,4 @@
-module.exports = function(app, db, query) {
+module.exports = function(app, config, db, query) {
     app.get('/articles', function(req, res) {
         query.getPostByDate(function(posts) {
             res.send(posts);
@@ -29,7 +29,7 @@ module.exports = function(app, db, query) {
         };
         newArticle.slug = req.body.slug;
         newArticle.category = req.body.category;
-        newArticle.tags = req.body.tags;
+        newArticle.description = req.body.description;
         newArticle.content = req.body.content;
         newArticle.state = req.body.state;
 
@@ -54,10 +54,11 @@ module.exports = function(app, db, query) {
             article.title = req.body.title;
             article.slug = req.body.slug;
             article.category = req.body.category;
-            article.tags = req.body.tags;
+            article.description = req.body.description;
             article.content = req.body.content;
             article.state = req.body.state;
             article.views = req.body.views;
+            article.comments = req.body.comments;
 
             article.save();
 
