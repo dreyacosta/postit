@@ -1,6 +1,7 @@
-var mongoose    = require('mongoose');
+var mongoose    = require('mongoose'),
+    config      = require('../config');
 
-mongoose.connect('mongodb://localhost/blogio', function(err) {
+mongoose.connect('mongodb://' + config.mongodb.credentials + config.mongodb.host + config.mongodb.port + '/' + config.mongodb.dbName, function(err) {
     if (err) throw err;
 });
 
@@ -39,14 +40,14 @@ var articleSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    postDescription: String,
+    description: String,
     tags: Array,
     state: String,
     views: {
         type: Number,
         default: 0
     },
-    comments: String,
+    comments: Array,
     author: Object
 });
 
