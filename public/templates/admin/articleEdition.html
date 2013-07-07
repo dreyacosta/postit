@@ -2,7 +2,7 @@
 
 <div class="text uppercase margin_bottom_medium"><%= model.postDate %></div>
 <div class="margin_bottom_medium">
-    Write by <span class="text bold"><%= model.author.username %></span> @ <span data-label="category" class="text bold" contenteditable="plaintext-only"><%= model.category %></span> // <span data-label="tags" contenteditable="plaintext-only"><%= model.tags %></span>
+    Write by <span class="text bold"><%= model.author.username %></span> @ <span data-label="category" class="text bold" contenteditable="plaintext-only"><%= model.category %></span>
 </div>
 <h2 data-label="title" class="text bold" contenteditable="plaintext-only"><%= model.title %></h2>
 <div data-label="slug" class="text color c_jet_light margin_bottom_big"><%= model.slug %></div>
@@ -22,7 +22,15 @@
     <div data-html5editor-role="preview" class="margin_bottom_big"><%= model.content %></div>
 </div>
 
-<button data-role="update" class="btn padding_small bck b_green text color c_white">Update</button>
+<button data-role="update" class="btn padding_small bck b_green text color c_white">
+<% if (model.state === "Draft") { %>
+Publish
+<% } %>
+
+<% if (model.state === "Publish") { %>
+Update
+<% } %>
+</button>
 
 <button data-role="draft" class="btn padding_small bck b_orange text color c_white">
 <% if (model.state === "Draft") { %>
