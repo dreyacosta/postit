@@ -40,6 +40,16 @@ module.exports = function(app, db) {
             });
         },
 
+        getPostBySlug: function (slug, callback) {
+            db.Article.findOne({slug: slug}, function (err, post) {
+                if (post) {
+                    callback(post);
+                } else {
+                    callback(post);
+                }
+            });
+        },
+
         getPostByTitleId: function (titleId, callback) {
             db.Article.findOne({titleId: titleId}, function (err, post) {
                 if (post) {
@@ -65,11 +75,25 @@ module.exports = function(app, db) {
                         content: thisPost.content,
                         category: thisPost.category,
                         author: thisPost.author,
-                        postDate: date
+                        state: thisPost.state,
+                        views: thisPost.views,
+                        postDate: thisPost.postDate
                     };
                     convertPosts.push(temp);
                 });
                 callback(convertPosts);
+            });
+        },
+
+        getPostByDateP: function (callback) {
+            var publishPosts = [];
+            db.Article.find().sort('postDate').find(function (err, posts) {
+                posts.forEach(function(thisPost) {
+                    if (thisPost.state === "Publish") {
+                        publishPosts.push(thisPost);
+                    }
+                });
+                callback(publishPosts);
             });
         },
 
