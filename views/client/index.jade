@@ -1,18 +1,18 @@
 extends header
 
 block content
-    header(class='row bck b_jet text color c_white b_shadow_small')
+    header(class='row bck b_turquoise text color c_white b_shadow_small')
         section.site_width.text.color.c_white
             div.col6
                 span post
                     strong it
             if user
                 div.col6.text.right
-                    span.padding_right_small #{user.fullName}
+                    span.padding_right_medium #{user.fullName}
                     img(src= user.image, class='b_shadow_small top')
             else
                 div.col6.text.right
                     a(href='/auth/twitter', class='text color c_blue_light bold') Sign in with Twitter
     section(id='container', class='row site_width padding_top_big')
-        section(id='articles', class='col9 padding_small')
-        section(id='sidebar', class='col3 padding_small')
+        section(id='articles', class='col8 padding_small')
+        section(id='sidebar', class='col4 padding_small')

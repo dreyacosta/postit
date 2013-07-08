@@ -1,24 +1,34 @@
 doctype 5
 html
     head
-        title= title
+        title= data.title
         link(rel='stylesheet', href='/font/font-awesome.min.css')
         link(rel='stylesheet', href='/stylesheets/xpressio.css')
 
-        script(src='/javascripts/vendors/jquery.js')
-        script(src='/javascripts/vendors/underscore.js')
-        script(src='/javascripts/vendors/backbone.js')
-        script(src='/javascripts/vendors/socket.io.js')
+        meta(name="description", content= data.description)
 
-        script(src='/javascripts/init.js')
-        
-        script(src='/javascripts/backbone/models/article.js')
+        if env == "dev"
+            script(src='/javascripts/vendors/jquery.js')
+            script(src='/javascripts/vendors/underscore.js')
+            script(src='/javascripts/vendors/backbone.js')
+            script(src='/javascripts/vendors/backbone.marionette.js')
+            script(src='/javascripts/vendors/socket.io.js')
+            script(src='/javascripts/vendors/jquery.timeago.js')
+            script(src='/javascripts/vendors/q.js')
+
+            script(src='/javascripts/init.js')
             
-        script(src='/javascripts/backbone/views/client/model.js')
-        script(src='/javascripts/backbone/views/client/sidebar.js')
+            script(src='/javascripts/app/client/models/article.js')
 
-        script(src='/javascripts/backbone/routers/client/base.js')
-        
-        script(src='/javascripts/client.js')
+            script(src='/javascripts/app/client/collections/articles.js')
+
+            script(src='/javascripts/app/client/routers/router.js')
+
+            script(src='/javascripts/app/client/views/article.js')
+            script(src='/javascripts/app/client/views/articles.js')
+            script(src='/javascripts/app/client/views/sidebar.js')
+            
+            script(src='/javascripts/app/client/client.js')
     body
         block content
+        include footer

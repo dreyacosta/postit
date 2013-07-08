@@ -9,29 +9,40 @@ html(class='isList')
         title= title
         link(rel='stylesheet', href='/stylesheets/xpressio.css')
 
-        if session
+        if env == "dev"
             script(src='/javascripts/vendors/jquery.js')
             script(src='/javascripts/vendors/underscore.js')
             script(src='/javascripts/vendors/backbone.js')
             script(src='/javascripts/vendors/backbone.marionette.js')
             script(src='/javascripts/vendors/socket.io.js')
             script(src='/javascripts/vendors/jquery.autosize.js')
+            script(src='/javascripts/vendors/jquery.timeago.js')
+            script(src='/javascripts/vendors/q.js')
 
             script(src='/javascripts/init.js')
 
             script(src='/javascripts/app/admin/models/article.js')
             script(src='/javascripts/app/admin/models/user.js')
 
+            script(src='/javascripts/app/admin/collections/articles.js')
+            script(src='/javascripts/app/admin/collections/users.js')
+
             script(src='/javascripts/app/admin/routers/router.js')
 
             script(src='/javascripts/app/admin/views/model.js')
             script(src='/javascripts/app/admin/views/sidebar.js')
             script(src='/javascripts/app/admin/views/edition.js')
+            script(src='/javascripts/app/admin/views/newArticle.js')
             
-            script(src='/javascripts/app/admin/admin.js')
+            script(src='/javascripts/app/admin/admin.js'))
     body(class='flex bck b_jet_light')
         if session
             block content
         else
             div(class='f1 flex y_center')
-                a(href='/auth/twitter', class="text center bold padding_big") Sign with Twitter
+                h1(class='text center bold padding_big')
+                    a(href='/auth/twitter') Sign with Twitter
+                h3(class='text center color c_jet padding_big')
+                    p Admin panel is made with Flexbox.
+                    p Use Chrome for a better experience.
+        include footer
