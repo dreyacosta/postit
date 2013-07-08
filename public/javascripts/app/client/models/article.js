@@ -8,6 +8,6 @@ Postit.Models.Article = Backbone.Model.extend({
     attributes: {},
 
     initialize: function() {
-        this.urlRoot = app.url.api.articles;
+        this.urlRoot = app.config.api.articles;
     }
 });

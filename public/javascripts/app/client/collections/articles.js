@@ -8,6 +8,6 @@ Postit.Collections.Articles = Backbone.Collection.extend({
     name: "articles",
 
     initialize: function() {
-        this.url = app.url.api.articles;
+        this.url = app.config.api.articles;
     }
 });
