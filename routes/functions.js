@@ -64,24 +64,7 @@ module.exports = function(app, db) {
         getPostByDate: function (callback) {
             var convertPosts = [];
             db.Article.find().sort('-postDate').find(function (err, posts) {
-                posts.forEach(function (thisPost) {
-                    var date = new Date(thisPost.postDate);
-                    date = date.toDateString();
-                    var temp = {
-                        _id: thisPost._id,
-                        title: thisPost.title,
-                        slug: thisPost.slug,
-                        tags: thisPost.tags,
-                        content: thisPost.content,
-                        category: thisPost.category,
-                        author: thisPost.author,
-                        state: thisPost.state,
-                        views: thisPost.views,
-                        postDate: thisPost.postDate
-                    };
-                    convertPosts.push(temp);
-                });
-                callback(convertPosts);
+                callback(posts);
             });
         },
 
