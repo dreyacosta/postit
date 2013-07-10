@@ -12,9 +12,10 @@ module.exports = function(app, config, query) {
         res.render('client/index', {
             user: req.user,
             env: config.env,
+            config: config.public,
             data: {
                 title: config.public.blogName,
-                content: config.public.blogDescription
+                description: config.public.blogDescription
             }
         });
     });
@@ -26,6 +27,7 @@ module.exports = function(app, config, query) {
             res.render('client/index', {
                 user: req.user,
                 env: config.env,
+                config: config.public,
                 data: article
             });
         });
@@ -37,6 +39,7 @@ module.exports = function(app, config, query) {
         res.render('client/index', {
             user: req.user,
             env: config.env,
+            config: config.public,
             data: {
                 title: config.public.blogName,
                 description: config.public.blogDescription
