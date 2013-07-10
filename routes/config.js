@@ -3,29 +3,30 @@ var config = {
         host: 'http://localhost',
         port: '3001'
     },
-    blogName: 'postit',
-    blogDescription: 'Small lightweight and real-time system blogging',
+    env: 'dev', // dev or prod
     mongodb: {
         credentials: '', // username:password@
         host: 'localhost',
         port: ':27017', // :port
         dbName: 'blogio'
     },
-    url: {
-        getUrlConfig: '/config',
-        blogHome: '/demo',
-        admin: {
-            index: '/admin'
-        },
+    twitter: {
+        consumerKey: 'xxx',
+        consumerSecret: 'xxx'
+    },
+    public: {
+        blogName: 'postit',
+        blogDescription: 'Small lightweight and real-time system blogging',
         api: {
             articles: '/articles',
+            articlesPublished: '/articlespublished',
             users: '/users'
         },
-        blog: {
-            post: '/post',
-            page: '',
-            category: '/category',
-            tag: '/tag'
+        url: {
+            authTwitter: '/auth/twitter',
+            authTwitterCallback: '/auth/twitter/callback',
+            admin: '/admin',
+            blog: '/blog'
         }
     }
 };
