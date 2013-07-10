@@ -4,8 +4,9 @@ block content
     header(class='row bck b_turquoise text color c_white b_shadow_small')
         section.site_width.text.color.c_white
             div.col6
-                span post
-                    strong it
+                strong #{config.blogName} 
+                |
+                span  #{config.blogDescription}
             if user
                 div.col6.text.right
                     span.padding_right_medium #{user.fullName}
