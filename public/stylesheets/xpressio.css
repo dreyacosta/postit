@@ -90,7 +90,7 @@ body {
 }
 html {
   font-family: Lato;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
 }
 article,
@@ -107,7 +107,7 @@ section {
   display: block;
 }
 header {
-  line-height: 2.75em;
+  line-height: 3em;
 }
 nav ul {
   list-style: none;
@@ -1250,58 +1250,58 @@ img.top {
 [class^="col"] {
   display: inline;
   float: left;
-  margin: 0 1.0416666666666665%;
+  margin: 0 2.272727272727273%;
 }
 .col1 {
-  width: 6.25%;
+  width: 3.787878787878788%;
 }
 .col2 {
-  width: 14.583333333333334%;
+  width: 12.121212121212121%;
 }
 .col3 {
-  width: 22.916666666666664%;
+  width: 20.454545454545457%;
 }
 .col4 {
-  width: 31.25%;
+  width: 28.78787878787879%;
 }
 .col5 {
-  width: 39.58333333333333%;
+  width: 37.121212121212125%;
 }
 .col5 {
-  width: 39.58333333333333%;
+  width: 37.121212121212125%;
 }
 .col6 {
-  width: 47.91666666666667%;
+  width: 45.45454545454545%;
 }
 .col7 {
-  width: 56.25%;
+  width: 53.78787878787878%;
 }
 .col8 {
-  width: 64.58333333333334%;
+  width: 62.121212121212125%;
 }
 .col9 {
-  width: 72.91666666666666%;
+  width: 70.45454545454545%;
 }
 .col10 {
-  width: 81.25%;
+  width: 78.78787878787878%;
 }
 .col11 {
-  width: 89.58333333333334%;
+  width: 87.12121212121212%;
 }
 .col12 {
-  width: 97.91666666666666%;
+  width: 95.45454545454545%;
 }
 .col13 {
-  width: 106.25%;
+  width: 103.78787878787878%;
 }
 .col14 {
-  width: 114.58333333333333%;
+  width: 112.12121212121211%;
 }
 .col15 {
-  width: 122.91666666666667%;
+  width: 120.45454545454545%;
 }
 .col16 {
-  width: 131.25%;
+  width: 128.78787878787878%;
 }
 .flex {
   display: -webkit-flex;
@@ -1699,7 +1699,7 @@ article {
   .col14,
   .col15,
   .col16 {
-    width: 97.91666666666666%;
+    width: 95.45454545454545%;
     margin-top: 10px;
   }
   .desktop {
