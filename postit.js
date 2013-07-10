@@ -34,14 +34,14 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/postit/config', function(req, res) {
-    res.send(config.url);
+    res.send(config.public);
 });
 
-require('./routes/views/admin')(app, passport);
-require('./routes/api/articles')(app, db, query);
-require('./routes/api/users')(app, db, query);
-require('./routes/auth')(app, db, passport, TwitterStrategy);
-require('./routes/views/client')(app);
+require('./routes/views/admin')(app, config, passport);
+require('./routes/api/articles')(app, config, db, query);
+require('./routes/api/users')(app, config, db, query);
+require('./routes/auth')(app, config, db, passport, TwitterStrategy);
+require('./routes/views/client')(app, config, query);
 
 server.listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
