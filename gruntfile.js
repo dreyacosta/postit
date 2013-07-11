@@ -2,23 +2,6 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
-        removelogging: {
-            admin: {
-                src: "dist/public/javascripts/app/admin/admin.js",
-                dest: "dist/public/javascripts/app/admin/admin.js",
-                options: {
-                    // see below for options. this is optional.
-                }
-            },
-            client: {
-                src: "dist/public/javascripts/app/client/client.js",
-                dest: "dist/public/javascripts/app/client/client.js",
-                options: {
-                    // see below for options. this is optional.
-                }
-            }
-        },
-
         jshint: {
             all: [
                 'gruntfile.js',
@@ -43,8 +26,8 @@ module.exports = function(grunt) {
                         // 'public/javascripts/vendors/socket.io.js',
                         'public/javascripts/vendors/jquery.autosize.js',
                         'public/javascripts/vendors/jquery.timeago.js',
-                        'public/javascripts/vendors/q.js'
-                        // 'public/javascripts/vendors/html5editor.js'
+                        'public/javascripts/vendors/q.js',
+                        'public/javascripts/vendors/html5editor.js'
                     ]
                 }
             },
@@ -99,7 +82,6 @@ module.exports = function(grunt) {
                             '*.json',
                             'postit.js',
                             'public/javascripts/vendors/socket.io.js',
-                            'public/javascripts/vendors/html5editor.js',
                             'views/**'
                         ],
                         dest: 'dist/'
@@ -114,7 +96,6 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks("grunt-remove-logging");
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -122,6 +103,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Default task(s).
-    grunt.registerTask('default', ['jshint', 'uglify', 'copy', 'removelogging']);
+    grunt.registerTask('default', ['jshint', 'uglify', 'imagemin', 'copy']);
 
 };
