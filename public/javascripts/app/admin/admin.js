@@ -1,8 +1,6 @@
 MyApp = new Backbone.Marionette.Application();
 
 MyApp.on("initialize:after", function(){
-    console.log('After app started');
-
     app.adminRouter = new Postit.Routers.AdminRouter();
 
     Backbone.history.start({
@@ -65,13 +63,11 @@ $(function() {
         return getCollections();
     }).then(function() {
         MyApp.start();
-        console.log('App started!');
     });
 
     // Sockets events
 
     socket.on('notifications', function(data) {
-        console.log('notifications ' + data);
         $('#notifications').html(data);
 
         setTimeout(function() {
@@ -80,17 +76,14 @@ $(function() {
     });
 
     socket.on('articles::create', function(data) {
-        console.log('Articles::create ' + data);
         app.articles.add(data, {at: 0});
     });
 
     socket.on('users::create', function(data) {
-        console.log('Users::create ' + data);
         app.users.add(data);
     });
 
     socket.on('users::remove', function(data) {
-        console.log('Socket on remove user', data);
         app.users.fetch();
     });
 
@@ -107,7 +100,6 @@ $(function() {
     });
 
     socket.on('articles::remove', function(data) {
-        console.log('Socket on remove', data);
         app.articles.fetch();
     });
 });

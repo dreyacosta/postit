@@ -11,8 +11,6 @@ Postit.Views.Model = Backbone.Marionette.ItemView.extend({
     className: "padding_medium border solid bottom_small pointer",
 
     template: function(model){
-        console.log('Article template');
-
         if (app.state === "articles") {
             return app.templates.article(model);
         }

@@ -6,14 +6,11 @@ Postit.Routers.ClientRouter = Backbone.Router.extend({
     },
 
     initialize: function() {
-        console.log('Initializing router...');
+
     },
 
     home: function() {
-        console.log('Router home');
-
         app.state = "articles";
-        console.log(app.articles.toJSON());
 
         this.articlesView = new Postit.Views.Articles({collection: app.articles});
         MyApp.articles.show(this.articlesView);
@@ -28,8 +25,6 @@ Postit.Routers.ClientRouter = Backbone.Router.extend({
     },
 
     articlePage: function(id) {
-        console.log('Router articlePage', id);
-
         app.state = "articlePage";
 
         var article = app.articles.find(function(article) {
@@ -49,8 +44,6 @@ Postit.Routers.ClientRouter = Backbone.Router.extend({
     },
 
     category: function(id) {
-        console.log('Router category', app.articles);
-
         app.state = "articles";
 
         var byCategory = app.articles.where({category: id});
@@ -58,8 +51,6 @@ Postit.Routers.ClientRouter = Backbone.Router.extend({
         app.articlesByCategory = new Postit.Collections.Articles();
 
         for (var article in byCategory) {
-            console.log(byCategory[article].toJSON());
-
             app.model = byCategory[article];
 
             app.articlesByCategory.add(app.model);

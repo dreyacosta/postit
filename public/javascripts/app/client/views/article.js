@@ -15,19 +15,15 @@ Postit.Views.Article = Backbone.Marionette.ItemView.extend({
 
     template: function(model){
         if (app.state === "articles") {
-            console.log('Article template articles', model);
             return app.templates.article(model);
         }
 
         if (app.state === "articlePage") {
-            console.log('Article template articlePage');
             return app.templates.articlePage(model);
         }
     },
 
     articleExtended: function(e) {
-        console.log('articleExtended');
-
         e.preventDefault();
 
         Backbone.history.navigate(this.model.get('slug'), {trigger: true});
@@ -40,8 +36,6 @@ Postit.Views.Article = Backbone.Marionette.ItemView.extend({
     },
 
     onRender: function(){
-        console.log('onRender', this);
-
         jQuery("abbr.timeago").timeago();
     }
 });

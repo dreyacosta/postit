@@ -6,12 +6,10 @@ MyApp.addRegions({
 });
 
 MyApp.on("initialize:before", function(){
-    console.log('Starting app...');
+
 });
 
 MyApp.on("initialize:after", function(){
-    console.log('After app started');
-
     app.clientRouter = new Postit.Routers.ClientRouter();
 
     Backbone.history.start({
@@ -46,7 +44,6 @@ var getConfig = function() {
 
     xhr.done(function(data) {
         app.config = data;
-        console.log(data);
         dConfig.resolve();
     });
 
@@ -82,14 +79,11 @@ $(function() {
         })
         .then(function() {
             MyApp.start();
-            console.log('App started!');
         });
 
     // Sockets events
 
     socket.on('articles::create', function(data) {
-        console.log('Articles::create ' + data);
-
         // data.postDate = jQuery.timeago(data.postDate);
 
         if (data.state === "Publish") {
@@ -98,8 +92,6 @@ $(function() {
     });
 
     socket.on('articles::update', function(data) {
-        console.log('Article update', data);
-
         // data.postDate = jQuery.timeago(data.postDate);
 
         var item = app.articles.find(function(item){
@@ -111,8 +103,6 @@ $(function() {
             return;
         }
 
-        console.log(data.state);
-
         if (data.state === "Draft") {
             app.articles.remove(item);
             return;
@@ -122,7 +112,6 @@ $(function() {
     });
 
     socket.on('articles::remove', function(data) {
-        console.log('Socket on remove', data);
         app.articles.fetch();
     });
 });

@@ -7,8 +7,6 @@ Postit.Routers.AdminRouter = Backbone.Router.extend({
     },
 
     initialize: function() {
-        console.log('Initializing router...');
-
         this.sidebarView = new Postit.Views.Sidebar({el: $('#sidebar')});
         this.sidebarView.showArticles();
     },
@@ -18,8 +16,6 @@ Postit.Routers.AdminRouter = Backbone.Router.extend({
     },
 
     newArticle: function() {
-        console.log('Router newArticle');
-
         this.newArticle = new Postit.Views.NewArticle();
         $('#container').html(this.newArticle.render().el);
 
@@ -34,8 +30,6 @@ Postit.Routers.AdminRouter = Backbone.Router.extend({
     },
 
     articleEdition: function(id) {
-        console.log('Router articleEdition');
-
         app.state = "articles";
 
         var article = app.articles.find(function(article) {
@@ -43,7 +37,6 @@ Postit.Routers.AdminRouter = Backbone.Router.extend({
         });
 
         if (!article) {
-            console.log('Article not found');
             return;
         }
 
@@ -65,8 +58,6 @@ Postit.Routers.AdminRouter = Backbone.Router.extend({
     },
 
     userEdition: function(id) {
-        console.log('Router userEdition');
-
         app.state = "users";
 
         this.sidebarView = new Postit.Views.Sidebar({el: $('#sidebar')});
@@ -77,7 +68,6 @@ Postit.Routers.AdminRouter = Backbone.Router.extend({
         });
 
         if (!user) {
-            console.log('User not found');
             return;
         }
 

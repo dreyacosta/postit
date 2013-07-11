@@ -16,12 +16,10 @@ Postit.Views.Edition = Backbone.View.extend({
         this.model = app.model;
 
         this.model.on('change', function() {
-            console.log("model change");
             self.render();
         });
 
         this.model.on('remove', function() {
-            console.log("model self destroy");
             self.articleDelete();
         });
     },
@@ -48,22 +46,16 @@ Postit.Views.Edition = Backbone.View.extend({
     },
 
     draft: function() {
-        console.log('Saving draft...');
-
         this.postState = "Draft";
         this.save();
     },
 
     update: function() {
-        console.log('Saving update...');
-
         this.postState = "Publish";
         this.save();
     },
 
     save: function() {
-        console.log('Saving article...');
-
         var model = this.model;
 
         var title = this.$el.find('[data-label="title"]').html();
@@ -88,7 +80,7 @@ Postit.Views.Edition = Backbone.View.extend({
         var xhr = model.save();
 
         xhr.done(function(data){
-            console.log('Article saved');
+
         });
     },
 
