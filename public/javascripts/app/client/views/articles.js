@@ -6,6 +6,8 @@ Postit.Views.Articles = Backbone.Marionette.CollectionView.extend({
     },
 
     onRender: function(){
-        jQuery("abbr.timeago").timeago();
+        console.log('onRender');
+
+        $("abbr.timeago").timeago();
     }
 });

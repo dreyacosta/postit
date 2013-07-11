@@ -2,7 +2,8 @@ Postit.Views.Article = Backbone.Marionette.ItemView.extend({
     tagName: "article",
 
     events: {
-        "click a": "articleExtended"
+        "click [data-label='category']": "goToCategory",
+        "click [data-label='title']": "articleExtended"
     },
 
     modelEvents: {
@@ -14,7 +15,7 @@ Postit.Views.Article = Backbone.Marionette.ItemView.extend({
 
     template: function(model){
         if (app.state === "articles") {
-            console.log('Article template articles');
+            console.log('Article template articles', model);
             return app.templates.article(model);
         }
 
@@ -28,11 +29,18 @@ Postit.Views.Article = Backbone.Marionette.ItemView.extend({
         console.log('articleExtended');
 
         e.preventDefault();
+
         Backbone.history.navigate(this.model.get('slug'), {trigger: true});
     },
 
+    goToCategory: function(e) {
+        e.preventDefault();
+
+        Backbone.history.navigate('category/' + this.model.get('category'), {trigger: true});
+    },
+
     onRender: function(){
-        console.log('onRender');
+        console.log('onRender', this);
 
         jQuery("abbr.timeago").timeago();
     }
