@@ -28,22 +28,16 @@ Postit.Views.NewArticle = Backbone.View.extend({
     },
 
     draft: function() {
-        console.log('Saving draft...');
-
         this.postState = "Draft";
         this.save();
     },
 
     publish: function() {
-        console.log('Saving update...');
-
         this.postState = "Publish";
         this.save();
     },
 
     save: function() {
-        console.log('Saving new article...');
-
         var self = this;
 
         var title = this.$el.find('[data-label="title"]').val();
@@ -54,6 +48,9 @@ Postit.Views.NewArticle = Backbone.View.extend({
 
         content = html5editor.lineBreak(content);
 
+        title = title.replace(/<script>.*<\/script>/gi, "");
+        category = category.replace(/<script>.*<\/script>/gi, "");
+        description = description.replace(/<script>.*<\/script>/gi, "");
         content = content.replace(/<script>.*<\/script>/gi, "");
 
         var model = new Postit.Models.Article({
@@ -68,8 +65,6 @@ Postit.Views.NewArticle = Backbone.View.extend({
         var xhr = model.save();
 
         xhr.done(function(data){
-            console.log('New article saved');
-
             self.render();
         });
     },
