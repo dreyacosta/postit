@@ -1,5 +1,3 @@
-var appConfig = new $.Deferred();
-
 MyApp = new Backbone.Marionette.Application();
 
 MyApp.addRegions({
@@ -17,13 +15,15 @@ MyApp.on("initialize:after", function(){
     app.clientRouter = new Postit.Routers.ClientRouter();
 
     Backbone.history.start({
-        root : "",
+        root : app.config.url.blog,
         pushState : true,
         silent : false
     });
 });
 
-var getTemplates = function(templates, callback) {
+var getTemplates = function(templates) {
+    var dTemplates = Q.defer();
+
     var deferreds = [];
 
     $.each(templates, function(index, view) {
@@ -32,26 +32,58 @@ var getTemplates = function(templates, callback) {
         }, 'html'));
     });
 
-    $.when.apply(null, deferreds).done(callback);
+    $.when.apply(null, deferreds).done(function() {
+        dTemplates.resolve();
+    });
+
+    return dTemplates.promise;
+};
+
+var getConfig = function() {
+    var dConfig = Q.defer();
+
+    var xhr = $.get('/postit/config');
+
+    xhr.done(function(data) {
+        app.config = data;
+        console.log(data);
+        dConfig.resolve();
+    });
+
+    return dConfig.promise;
 };
 
 var getCollections = function() {
+    var dCollections = Q.defer();
+
     app.articles = new Postit.Collections.Articles();
 
-    $.when(app.articles.fetch()).done(function() {
-        appConfig.resolve();
+    var xhr = $.get(app.config.api.articlesPublished);
+
+    xhr.done(function(data) {
+        data.forEach(function(article) {
+            app.articles.add(article);
+        });
+        dCollections.resolve();
     });
+
+    return dCollections.promise;
 };
 
 $(function() {
-    var templates = ['article', 'articlePage'];
+    var templates = ['article', 'articlePage', 'sidebar'];
 
-    getTemplates(templates, getCollections);
-
-    appConfig.done(function() {
-        MyApp.start();
-        console.log('App started!');
-    });
+    getTemplates(templates)
+        .then(function() {
+            return getConfig();
+        })
+        .then(function() {
+            return getCollections();
+        })
+        .then(function() {
+            MyApp.start();
+            console.log('App started!');
+        });
 
     // Sockets events
 
@@ -60,7 +92,9 @@ $(function() {
 
         // data.postDate = jQuery.timeago(data.postDate);
 
-        app.articles.add(data, {at: 0});
+        if (data.state === "Publish") {
+            app.articles.add(data);
+        }
     });
 
     socket.on('articles::update', function(data) {

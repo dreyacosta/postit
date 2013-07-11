@@ -2,18 +2,14 @@ Postit.Views.NewArticle = Backbone.View.extend({
     className: "bck b_white padding_medium",
 
     events: {
-        "click button": "save",
+        "click button[data-role='publish']": "publish",
+        "click button[data-role='draft']": "draft",
         "keyup input[data-label='title']": "slugGenerate",
         "click #back": "back"
     },
 
     initialize: function() {
 
-    },
-
-    destroy: function(){
-        this.remove();
-        this.unbind();
     },
 
     back: function() {
@@ -31,6 +27,20 @@ Postit.Views.NewArticle = Backbone.View.extend({
         this.$el.find('[data-label="slug"]').html(title);
     },
 
+    draft: function() {
+        console.log('Saving draft...');
+
+        this.postState = "Draft";
+        this.save();
+    },
+
+    publish: function() {
+        console.log('Saving update...');
+
+        this.postState = "Publish";
+        this.save();
+    },
+
     save: function() {
         console.log('Saving new article...');
 
@@ -39,12 +49,10 @@ Postit.Views.NewArticle = Backbone.View.extend({
         var title = this.$el.find('[data-label="title"]').val();
         var slug = this.$el.find('[data-label="slug"]').html();
         var category = this.$el.find('[data-label="category"]').val();
-        var tags = this.$el.find('[data-label="tags"]').val();
+        var description = this.$el.find('[data-label="description"]').val();
         var content = this.$el.find('[data-label="content"]').val();
 
-        var state = "Publish";
-
-        content = html5editor.linebreaksToParagraphs(content);
+        content = html5editor.lineBreak(content);
 
         content = content.replace(/<script>.*<\/script>/gi, "");
 
@@ -52,8 +60,8 @@ Postit.Views.NewArticle = Backbone.View.extend({
             title : title,
             slug : slug,
             category : category,
-            tags : tags,
-            state : state,
+            description : description,
+            state : this.postState,
             content : content
         });
 
@@ -72,6 +80,13 @@ Postit.Views.NewArticle = Backbone.View.extend({
         this.$el.empty();
 
         $(self.el).html(app.templates.articleNew());
+
+        html5editor({
+            editor: "data-html5editor-role='editor'",
+            preview: "data-html5editor-role='preview'",
+            tagName: "data-html5editor-tagName",
+            className: "data-html5editor-className"
+        });
 
         return this;
     }
