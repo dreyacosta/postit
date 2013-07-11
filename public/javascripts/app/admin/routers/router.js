@@ -23,6 +23,8 @@ Postit.Routers.AdminRouter = Backbone.Router.extend({
         this.newArticle = new Postit.Views.NewArticle();
         $('#container').html(this.newArticle.render().el);
 
+        $('textarea').autosize();
+
         html5editor({
             editor: "data-html5editor-role='editor'",
             preview: "data-html5editor-role='preview'",
