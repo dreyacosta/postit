@@ -5,7 +5,7 @@
 A little experimental CMS for real-time blogging. This is just a little exercise I have done to understand some new technologies like Node.js, Express.js, Socket.io, MongoDB and Backbone.js.
 
 + Site: http://postit.xpress.io
-+ Demo: http://youtu.be/rHXb75fw208
++ Demo: http://youtu.be/rHXb75fw208 (New 0.3 video coming soon...)
 
 ## How to install
 
@@ -27,6 +27,7 @@ A little experimental CMS for real-time blogging. This is just a little exercise
 ### Version 0.3
 
 + Code rewrite for Backbone.js and Marionette.js integration.
++ Dependencies updated to the lastest version.
 + Better real time updates with Socket.io.
 + Sign in with Twitter.
 + New article editor with preview.
