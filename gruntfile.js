@@ -2,6 +2,23 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
+        removelogging: {
+            admin: {
+                src: "dist/public/javascripts/app/admin/admin.js",
+                dest: "dist/public/javascripts/app/admin/admin.js",
+                options: {
+                    // see below for options. this is optional.
+                }
+            },
+            client: {
+                src: "dist/public/javascripts/app/client/client.js",
+                dest: "dist/public/javascripts/app/client/client.js",
+                options: {
+                    // see below for options. this is optional.
+                }
+            }
+        },
+
         jshint: {
             all: [
                 'gruntfile.js',
@@ -97,6 +114,7 @@ module.exports = function(grunt) {
         }
     });
 
+    grunt.loadNpmTasks("grunt-remove-logging");
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -104,6 +122,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Default task(s).
-    grunt.registerTask('default', ['jshint', 'uglify', 'copy']);
+    grunt.registerTask('default', ['jshint', 'uglify', 'copy', 'removelogging']);
 
 };
