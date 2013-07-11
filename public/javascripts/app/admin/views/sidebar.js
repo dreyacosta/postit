@@ -19,9 +19,6 @@ Postit.Views.Sidebar = Backbone.Marionette.CompositeView.extend({
         this.collection = app.articles;
         this.collection.on('add', this.render);
         this.render();
-
-        $("[data-link='newArticle']").attr("class", "bck b_jet text center color c_white padding_medium pointer");
-        $("[data-link='newArticle']").html('Add article +');
     },
 
     showUsers: function() {
@@ -37,6 +34,7 @@ Postit.Views.Sidebar = Backbone.Marionette.CompositeView.extend({
     },
 
     onRender: function(){
-        jQuery("abbr.timeago").timeago();
+        $("[data-link='newArticle']").attr("class", "bck b_jet text center color c_white padding_medium pointer");
+        $("[data-link='newArticle']").html('Add article +');
     }
 });

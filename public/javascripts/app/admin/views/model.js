@@ -27,6 +27,8 @@ Postit.Views.Model = Backbone.Marionette.ItemView.extend({
     },
 
     onRender: function(){
-        jQuery("abbr.timeago").timeago();
+        setTimeout(function() {
+            $("abbr.timeago").timeago();
+        }, 10);
     }
 });

@@ -4,7 +4,7 @@ Postit.Views.Edition = Backbone.View.extend({
     events: {
         "click button[data-role='update']": "update",
         "click button[data-role='draft']": "draft",
-        "click button[data-role='delete']": "delete",
+        "click button[data-role='delete']": "articleDelete",
         "keyup h2": "slugGenerate",
         "click #back": "back"
     },
@@ -22,12 +22,13 @@ Postit.Views.Edition = Backbone.View.extend({
 
         this.model.on('remove', function() {
             console.log("model self destroy");
-            self.destroy();
+            self.articleDelete();
         });
     },
 
-    delete: function() {
+    articleDelete: function() {
         this.model.destroy();
+        Backbone.history.navigate('', {trigger: true});
     },
 
     back: function() {
@@ -68,10 +69,10 @@ Postit.Views.Edition = Backbone.View.extend({
         var title = this.$el.find('[data-label="title"]').html();
         var slug = this.$el.find('[data-label="slug"]').html();
         var category = this.$el.find('[data-label="category"]').html();
-        var tags = this.$el.find('[data-label="tags"]').html();
+        var description = this.$el.find('[data-label="description"]').html();
         var content = this.$el.find('[data-label="content"]').val();
 
-        content = html5editor.linebreaksToParagraphs(content);
+        content = html5editor.lineBreak(content);
 
         content = content.replace(/<script>.*<\/script>/gi, "");
 
@@ -79,7 +80,7 @@ Postit.Views.Edition = Backbone.View.extend({
             title : title,
             slug : slug,
             category : category,
-            tags : tags,
+            description : description,
             content : content,
             state : this.postState
         });
@@ -103,22 +104,24 @@ Postit.Views.Edition = Backbone.View.extend({
         if (this.state == "articles") {
             var article = self.model.toJSON();
 
-            var previewVal = article.content;
-
-            previewVal = previewVal.replace(/<p>/g, '');
-            previewVal = previewVal.replace(/<\/p>/g, '\n\n');
-
-            previewVal = previewVal.trim();
-
-            locals.article = previewVal;
+            locals.article = html5editor.onLoadFormat(article.content);
 
             $(self.el).html(app.templates.articleEdition(locals));
+
+            $('textarea').autosize();
         }
 
         if (this.state == "users") {
             $(self.el).html(app.templates.userEdition(locals));
         }
 
+        html5editor({
+            editor: "data-html5editor-role='editor'",
+            preview: "data-html5editor-role='preview'",
+            tagName: "data-html5editor-tagName",
+            className: "data-html5editor-className"
+        });
+        
         return this;
     }
 });
