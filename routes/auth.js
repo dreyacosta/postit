@@ -2,7 +2,7 @@ module.exports = function(app, config, db, passport, TwitterStrategy) {
     passport.use(new TwitterStrategy({
             consumerKey: config.twitter.consumerKey,
             consumerSecret: config.twitter.consumerSecret,
-            callbackURL: config.public.url.authTwitterCallback
+            callbackURL: config.domain.host + config.domain.port + config.public.url.authTwitterCallback
         },
 
         function(token, tokenSecret, profile, done) {
@@ -46,6 +46,6 @@ module.exports = function(app, config, db, passport, TwitterStrategy) {
     });
 
     app.get(config.public.url.authTwitterCallback, passport.authenticate('twitter', { failureRedirect: '/login' }), function(req, res) {
-        res.redirect(config.public.url.admin);
+        res.redirect(config.domain.host + config.domain.port + config.public.url.admin);
     });
 };
