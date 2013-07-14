@@ -12,7 +12,7 @@ var query           = require('./routes/functions')(app, db),
     config          = require('./routes/config');
 
 app.configure(function() {
-    app.set('port', process.env.PORT || 3000);
+    app.set('port', process.env.PORT || config.domain.port);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
     app.use(express.favicon());
