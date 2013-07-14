@@ -1,7 +1,7 @@
 var config = {
     domain: {
         host: 'http://localhost',
-        port: '3001'
+        port: '3005'
     },
     env: 'dev', // dev or prod
     mongodb: {
