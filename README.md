@@ -1,11 +1,11 @@
 # postit
-### Experimental CMS for real-time blogging made with NodeJS
+### Experimental CMS for real-time blogging made with Node.js
 
 ## What's postit?
 A little experimental CMS for real-time blogging. This is just a little exercise I have done to understand some new technologies like Node.js, Express.js, Socket.io, MongoDB and Backbone.js.
 
 + Site: http://postit.xpress.io
-+ Demo: http://youtu.be/rHXb75fw208 (New 0.3 video coming soon...)
++ Demo: http://youtu.be/GF8uyqLd-M0
 
 ## How to install
 
@@ -42,7 +42,8 @@ A little experimental CMS for real-time blogging. This is just a little exercise
 + Easy administration panel.
 + Real time post and update.
 + Ready for SEO.
-+ URL customization.
++ Blog settings customization.
+
 
 ### Feel free to contribute
 
