@@ -36,33 +36,57 @@ box-sizing()
 text-size-adjust()
     vendor('text-size-adjust', arguments)
 
-// Flex vendors
+// Flex vendors (I don't like so much the code, but lot of hacks are required)
 
 flexbox()
-    vendorVal('display', 'flex')
+    display -webkit-box
     display -moz-box
+    display -ms-flexbox
+    display -webkit-flex
+    display flex
 
-flex-direction()
-    vendor('flex-direction', arguments)
+flex-direction-row()
+    -webkit-box-direction normal
+    -webkit-box-orient normal
+    -webkit-flex-direction horizontal
+    -moz-box-direction horizontal
+    -moz-flex-direction row
+    -ms-flex-direction row
+    flex-direction row
+
+flex-direction-column()
+    -webkit-box-direction normal
+    -moz-box-direction normal
+    -webkit-box-orient vertical
+    -moz-box-orient vertical
+    -webkit-flex-direction column
+    -ms-flex-direction column
+    flex-direction column
 
 // X horizontal
 
 flex-justify-content()
     vendor('justify-content', arguments)
+    vendor('box-pack', arguments)
+    vendor('flex-pack', arguments)
 
 // Y vertical
 
 flex-align-items()
     vendor('align-items', arguments)
+    vendor('box-align', arguments)
+    vendor('flex-align', arguments)
 
 // Items properties
 
 flex-align-self()
     vendor('align-self', arguments)
+    vendor('flex-item-align', arguments)
 
 flex-anchor()
     vendor('flex', arguments)
-    vendor('-moz-box-flex', arguments)
+    vendor('box-flex', arguments)
 
 flex-align-content()
     vendor('align-content', arguments)
+    vendor('flex-line-pack', arguments)
