@@ -34,7 +34,7 @@ Postit.Views.Sidebar = Backbone.Marionette.CompositeView.extend({
     },
 
     onRender: function(){
-        $("[data-link='newArticle']").attr("class", "bck b_jet text center color c_white padding_medium pointer");
+        $("[data-link='newArticle']").attr("class", "bck b_jet text center color c_white padding_medium pointer anchor");
         $("[data-link='newArticle']").html('Add article +');
     }
 });
